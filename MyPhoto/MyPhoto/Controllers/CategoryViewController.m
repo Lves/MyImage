@@ -1,40 +1,34 @@
 //
-//  ViewController.m
+//  CategoryViewController.m
 //  MyPhoto
 //
-//  Created by lixingle on 2018/8/3.
+//  Created by lixingle on 2018/8/6.
 //  Copyright © 2018年 com.pintec. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "CategoryViewController.h"
 #import <AFNetworking/AFNetworking.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "Image360Model.h"
 #import <MJExtension/MJExtension.h>
 #import "PhoneImageModel.h"
 #import "HomeCollectionViewCell.h"
 #import <MJRefresh/MJRefresh.h>
-#import "HomeCollectionReusableView.h"
 
-@interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
-
+@interface CategoryViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,strong) NSArray *dataArray;
-@property (nonatomic,strong) NSArray *topBannerArray;
+
 @end
 
-@implementation ViewController
+@implementation CategoryViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self requestApi];
-    
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;//[UICollectionViewFlowLayout new];
     flowLayout.minimumLineSpacing = 0;
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"HomeCollectionViewCell"];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeCollectionReusableView"];
     
     __weak typeof(self) weakSelf = self;
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -42,34 +36,12 @@
     }];
     [self.collectionView.mj_header beginRefreshing];
 }
-
-
--(void)requestApi{
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-
-    NSURL *URL = [NSURL URLWithString:@"http://wallpaper.apc.360.cn/index.php?c=WallPaperAndroid&a=getAppsByCategory&cid=9&start=0&count=5"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-    __weak typeof(self) weakSelf = self;
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            NSLog(@"Error: %@", error);
-        } else {
-            NSLog(@"%@ %@", response, responseObject);
-            NSArray *jsonArray = responseObject[@"data"];
-            NSArray *imageArray = [Image360Model mj_objectArrayWithKeyValuesArray:jsonArray];
-            weakSelf.topBannerArray = imageArray;
-            [weakSelf.collectionView reloadData];
-        }
-    }];
-    [dataTask resume];
-}
-
 -(void)requestPhoneImages{
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    NSURL *URL = [NSURL URLWithString:@"http://service.picasso.adesk.com/v1/vertical/vertical?limit=40&skip=0&adult=false&first=0&order=hot"];
+    NSString *urlStr = [NSString stringWithFormat:@"http://service.picasso.adesk.com/v1/vertical/category/%@/vertical?limit=30&adult=false&first=1&order=new",self.categoryId];
+    NSURL *URL = [NSURL URLWithString:urlStr];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
     __weak typeof(self) weakSelf = self;
@@ -112,18 +84,6 @@
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
-}
-#pragma mark ColloectionHeader
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-        return CGSizeMake(kScreenWidth, 200);
-    }
-    return CGSizeZero;
-}
--(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    HomeCollectionReusableView *header = (HomeCollectionReusableView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeCollectionReusableView" forIndexPath:indexPath];
-    header.dataArray = self.topBannerArray;
-    return header;
 }
 
 @end

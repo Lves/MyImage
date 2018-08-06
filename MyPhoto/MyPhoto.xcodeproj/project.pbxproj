@@ -22,6 +22,10 @@
 		6CB2ECAF211464C9000370EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB2ECAD211464C9000370EF /* LaunchScreen.storyboard */; };
 		6CB2ECB2211464C9000370EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2ECB1211464C9000370EF /* main.m */; };
 		6CCCF5F82118258F00ED72D5 /* TopBannerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CCCF5F72118258F00ED72D5 /* TopBannerCollectionViewCell.m */; };
+		6CCCF5FB211838EC00ED72D5 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CCCF5FA211838EC00ED72D5 /* CategoryViewController.m */; };
+		6CCCF5FE21183DFE00ED72D5 /* ImageCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CCCF5FD21183DFE00ED72D5 /* ImageCategory.m */; };
+		6CCCF68121185BEE00ED72D5 /* CategoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CCCF68021185BEE00ED72D5 /* CategoryListViewController.m */; };
+		6CCCF68421185F1C00ED72D5 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CCCF68321185F1C00ED72D5 /* CategoryTableViewCell.m */; };
 		CA039F3CFA8B06FCACD8812F /* Pods_MyPhoto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BCF533DB48B097CD36823D /* Pods_MyPhoto.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +58,14 @@
 		6CB2ECB1211464C9000370EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6CCCF5F62118258F00ED72D5 /* TopBannerCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopBannerCollectionViewCell.h; sourceTree = "<group>"; };
 		6CCCF5F72118258F00ED72D5 /* TopBannerCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopBannerCollectionViewCell.m; sourceTree = "<group>"; };
+		6CCCF5F9211838EC00ED72D5 /* CategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
+		6CCCF5FA211838EC00ED72D5 /* CategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
+		6CCCF5FC21183DFE00ED72D5 /* ImageCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCategory.h; sourceTree = "<group>"; };
+		6CCCF5FD21183DFE00ED72D5 /* ImageCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCategory.m; sourceTree = "<group>"; };
+		6CCCF67F21185BEE00ED72D5 /* CategoryListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryListViewController.h; sourceTree = "<group>"; };
+		6CCCF68021185BEE00ED72D5 /* CategoryListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryListViewController.m; sourceTree = "<group>"; };
+		6CCCF68221185F1C00ED72D5 /* CategoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryTableViewCell.h; sourceTree = "<group>"; };
+		6CCCF68321185F1C00ED72D5 /* CategoryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryTableViewCell.m; sourceTree = "<group>"; };
 		D8E24FAC404B76DA512BE856 /* Pods-MyPhoto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPhoto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyPhoto/Pods-MyPhoto.debug.xcconfig"; sourceTree = "<group>"; };
 		EE8C3D247DCAB3AC3399A76B /* Pods-MyPhoto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPhoto.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyPhoto/Pods-MyPhoto.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +90,8 @@
 				6C2D23482117F9F20018438B /* PhoneImageModel.h */,
 				6C2D23462117F9F20018438B /* PhoneImageModel.m */,
 				6C2D2356211803C40018438B /* DDTest.swift */,
+				6CCCF5FC21183DFE00ED72D5 /* ImageCategory.h */,
+				6CCCF5FD21183DFE00ED72D5 /* ImageCategory.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -96,6 +110,8 @@
 				6C2D2353211800840018438B /* MyPhoto-Bridging-Header.h */,
 				6CCCF5F62118258F00ED72D5 /* TopBannerCollectionViewCell.h */,
 				6CCCF5F72118258F00ED72D5 /* TopBannerCollectionViewCell.m */,
+				6CCCF68221185F1C00ED72D5 /* CategoryTableViewCell.h */,
+				6CCCF68321185F1C00ED72D5 /* CategoryTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -105,6 +121,10 @@
 			children = (
 				6C2D234B2117F9FC0018438B /* ViewController.h */,
 				6C2D234C2117F9FC0018438B /* ViewController.m */,
+				6CCCF5F9211838EC00ED72D5 /* CategoryViewController.h */,
+				6CCCF5FA211838EC00ED72D5 /* CategoryViewController.m */,
+				6CCCF67F21185BEE00ED72D5 /* CategoryListViewController.h */,
+				6CCCF68021185BEE00ED72D5 /* CategoryListViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -287,13 +307,17 @@
 				6CCCF5F82118258F00ED72D5 /* TopBannerCollectionViewCell.m in Sources */,
 				6C2D234D2117F9FC0018438B /* ViewController.m in Sources */,
 				6CB2ECB2211464C9000370EF /* main.m in Sources */,
+				6CCCF68421185F1C00ED72D5 /* CategoryTableViewCell.m in Sources */,
+				6CCCF5FB211838EC00ED72D5 /* CategoryViewController.m in Sources */,
 				6C2D23512117FBC80018438B /* HomeCollectionReusableView.m in Sources */,
 				6C2D23432117F9E80018438B /* ImageTableViewCell.m in Sources */,
 				6CB2ECA4211464C7000370EF /* AppDelegate.m in Sources */,
 				6C2D2357211803C40018438B /* DDTest.swift in Sources */,
+				6CCCF68121185BEE00ED72D5 /* CategoryListViewController.m in Sources */,
 				6C2D23422117F9E80018438B /* HomeCollectionViewCell.m in Sources */,
 				6C2D234A2117F9F20018438B /* PhoneImageModel.m in Sources */,
 				6C2D23492117F9F20018438B /* Image360Model.m in Sources */,
+				6CCCF5FE21183DFE00ED72D5 /* ImageCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
