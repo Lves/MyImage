@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C2D23302117E91E0018438B /* PhoneImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D232F2117E91E0018438B /* PhoneImageModel.m */; };
+		6C2D23372117F5AA0018438B /* HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D23352117F5AA0018438B /* HomeCollectionViewCell.m */; };
+		6C2D23382117F5AA0018438B /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C2D23362117F5AA0018438B /* HomeCollectionViewCell.xib */; };
 		6CB2ECA4211464C7000370EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2ECA3211464C7000370EF /* AppDelegate.m */; };
 		6CB2ECA7211464C7000370EF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2ECA6211464C7000370EF /* ViewController.m */; };
 		6CB2ECAA211464C7000370EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB2ECA8211464C7000370EF /* Main.storyboard */; };
@@ -20,6 +23,12 @@
 
 /* Begin PBXFileReference section */
 		38BCF533DB48B097CD36823D /* Pods_MyPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C2D232E2117E91E0018438B /* PhoneImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhoneImageModel.h; sourceTree = "<group>"; };
+		6C2D232F2117E91E0018438B /* PhoneImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhoneImageModel.m; sourceTree = "<group>"; };
+		6C2D23342117F5AA0018438B /* HomeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewCell.h; sourceTree = "<group>"; };
+		6C2D23352117F5AA0018438B /* HomeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewCell.m; sourceTree = "<group>"; };
+		6C2D23362117F5AA0018438B /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		6C2D23392117F6B50018438B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		6CB2EC9F211464C7000370EF /* MyPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB2ECA2211464C7000370EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6CB2ECA3211464C7000370EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -84,6 +93,12 @@
 				6CB2ECB921146B10000370EF /* ImageTableViewCell.m */,
 				6CB2ECBB21146CE8000370EF /* Image360Model.h */,
 				6CB2ECBC21146CE8000370EF /* Image360Model.m */,
+				6C2D232E2117E91E0018438B /* PhoneImageModel.h */,
+				6C2D232F2117E91E0018438B /* PhoneImageModel.m */,
+				6C2D23342117F5AA0018438B /* HomeCollectionViewCell.h */,
+				6C2D23352117F5AA0018438B /* HomeCollectionViewCell.m */,
+				6C2D23362117F5AA0018438B /* HomeCollectionViewCell.xib */,
+				6C2D23392117F6B50018438B /* PrefixHeader.pch */,
 			);
 			path = MyPhoto;
 			sourceTree = "<group>";
@@ -167,6 +182,7 @@
 				6CB2ECAF211464C9000370EF /* LaunchScreen.storyboard in Resources */,
 				6CB2ECAC211464C9000370EF /* Assets.xcassets in Resources */,
 				6CB2ECAA211464C7000370EF /* Main.storyboard in Resources */,
+				6C2D23382117F5AA0018438B /* HomeCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +242,8 @@
 				6CB2ECBA21146B10000370EF /* ImageTableViewCell.m in Sources */,
 				6CB2ECB2211464C9000370EF /* main.m in Sources */,
 				6CB2ECA4211464C7000370EF /* AppDelegate.m in Sources */,
+				6C2D23372117F5AA0018438B /* HomeCollectionViewCell.m in Sources */,
+				6C2D23302117E91E0018438B /* PhoneImageModel.m in Sources */,
 				6CB2ECBD21146CE8000370EF /* Image360Model.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +386,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MyPhoto/PrefixHeader.pch";
 				INFOPLIST_FILE = MyPhoto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -385,6 +405,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MyPhoto/PrefixHeader.pch";
 				INFOPLIST_FILE = MyPhoto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

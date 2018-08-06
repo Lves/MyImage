@@ -18,51 +18,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uMv-7W-vXb">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PCD-L6-gDb">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageTableViewCell" rowHeight="123" id="0Tv-Mv-iOq" customClass="ImageTableViewCell">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="123"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Tv-Mv-iOq" id="Kex-ht-jd7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="122.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RwX-zq-CVs">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="122.5"/>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="RwX-zq-CVs" secondAttribute="trailing" id="68X-sK-b2s"/>
-                                                <constraint firstItem="RwX-zq-CVs" firstAttribute="leading" secondItem="Kex-ht-jd7" secondAttribute="leading" id="K74-hg-0SR"/>
-                                                <constraint firstAttribute="bottom" secondItem="RwX-zq-CVs" secondAttribute="bottom" id="pZl-1N-4RZ"/>
-                                                <constraint firstItem="RwX-zq-CVs" firstAttribute="top" secondItem="Kex-ht-jd7" secondAttribute="top" id="wkv-vF-fWQ"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="icon" destination="RwX-zq-CVs" id="DER-Jh-nx4"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="op8-vO-Dis">
+                                    <size key="itemSize" width="180" height="212"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="8WP-yb-0JG"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="6A8-k5-UWA"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="A0P-Kn-tV6"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="RRh-gz-I80"/>
                                 </connections>
-                            </tableView>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="uMv-7W-vXb" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4Ro-vN-gHb"/>
-                            <constraint firstItem="uMv-7W-vXb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="A3n-tc-xrG"/>
-                            <constraint firstItem="uMv-7W-vXb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GYZ-Xa-UKQ"/>
-                            <constraint firstItem="uMv-7W-vXb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nYW-nB-e04"/>
+                            <constraint firstItem="PCD-L6-gDb" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="9Ux-dt-hpC"/>
+                            <constraint firstItem="PCD-L6-gDb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Oq9-Vy-DhV"/>
+                            <constraint firstItem="PCD-L6-gDb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="T8A-fJ-TEO"/>
+                            <constraint firstItem="PCD-L6-gDb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nIk-mr-eev"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="X3i-7H-rld"/>
                     <connections>
-                        <outlet property="tableView" destination="uMv-7W-vXb" id="gGp-cA-b5i"/>
+                        <outlet property="collectionView" destination="PCD-L6-gDb" id="6kr-BG-o2i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
