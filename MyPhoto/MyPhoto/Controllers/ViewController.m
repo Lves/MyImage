@@ -14,54 +14,66 @@
 #import <MJExtension/MJExtension.h>
 #import "PhoneImageModel.h"
 #import "HomeCollectionViewCell.h"
+#import <MJRefresh/MJRefresh.h>
+#import "HomeCollectionReusableView.h"
 
 @interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,strong) NSArray *dataArray;
+@property (nonatomic,strong) NSArray *topBannerArray;
 @end
 
 @implementation ViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self requestApi];
+    
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;//[UICollectionViewFlowLayout new];
     flowLayout.minimumLineSpacing = 0;
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"HomeCollectionViewCell"];
-    [self requestPhoneImages];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeCollectionReusableView"];
+    
+    __weak typeof(self) weakSelf = self;
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakSelf requestPhoneImages];
+    }];
+    [self.collectionView.mj_header beginRefreshing];
 }
 
 
-//-(void)requestApi{
-//    //http://wallpaper.apc.360.cn/index.php?c=WallPaperAndroid&a=getAppsByCategory
-//    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-//    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-//
-//    NSURL *URL = [NSURL URLWithString:@"http://wallpaper.apc.360.cn/index.php?c=WallPaperAndroid&a=getAppsByCategory&cid=9&start=0&count=99"];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-//
-//    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-//        if (error) {
-//            NSLog(@"Error: %@", error);
-//        } else {
-//            NSLog(@"%@ %@", response, responseObject);
-//            NSArray *jsonArray = responseObject[@"data"];
-//            NSArray *imageArray = [Image360Model mj_objectArrayWithKeyValuesArray:jsonArray];
-//            self.dataArray = imageArray;
-//            [self.tableView reloadData];
-//        }
-//    }];
-//    [dataTask resume];
-//}
+-(void)requestApi{
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+
+    NSURL *URL = [NSURL URLWithString:@"http://wallpaper.apc.360.cn/index.php?c=WallPaperAndroid&a=getAppsByCategory&cid=9&start=0&count=5"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    __weak typeof(self) weakSelf = self;
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+        } else {
+            NSLog(@"%@ %@", response, responseObject);
+            NSArray *jsonArray = responseObject[@"data"];
+            NSArray *imageArray = [Image360Model mj_objectArrayWithKeyValuesArray:jsonArray];
+            weakSelf.topBannerArray = imageArray;
+            [weakSelf.collectionView reloadData];
+        }
+    }];
+    [dataTask resume];
+}
 
 -(void)requestPhoneImages{
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    NSURL *URL = [NSURL URLWithString:@"http://service.picasso.adesk.com/v1/vertical/vertical?limit=30&skip=180&adult=false&first=0&order=hot"];
+    NSURL *URL = [NSURL URLWithString:@"http://service.picasso.adesk.com/v1/vertical/vertical?limit=40&skip=0&adult=false&first=0&order=hot"];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
+    __weak typeof(self) weakSelf = self;
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
             NSLog(@"Error: %@", error);
@@ -70,16 +82,15 @@
             if ([responseObject[@"msg"] isEqualToString:@"success"]) {
                 NSArray *jsonArray = responseObject[@"res"][@"vertical"];
                 NSArray *imageArray = [PhoneImageModel mj_objectArrayWithKeyValuesArray:jsonArray];
-                self.dataArray = imageArray;
+                weakSelf.dataArray = imageArray;
             }else {
-                self.dataArray = nil;
+                weakSelf.dataArray = nil;
             }
-            [self.collectionView reloadData];
+            [weakSelf.collectionView reloadData];
         }
+        [weakSelf.collectionView.mj_header endRefreshing];
     }];
     [dataTask resume];
-
-    
 }
 
 #pragma mark - TableView
@@ -103,4 +114,17 @@
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
 }
+#pragma mark ColloectionHeader
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return CGSizeMake(kScreenWidth, 200);
+    }
+    return CGSizeZero;
+}
+-(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    HomeCollectionReusableView *header = (HomeCollectionReusableView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeCollectionReusableView" forIndexPath:indexPath];
+    header.dataArray = self.topBannerArray;
+    return header;
+}
+
 @end

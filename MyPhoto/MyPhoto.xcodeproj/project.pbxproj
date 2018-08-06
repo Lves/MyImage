@@ -7,42 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C2D23302117E91E0018438B /* PhoneImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D232F2117E91E0018438B /* PhoneImageModel.m */; };
-		6C2D23372117F5AA0018438B /* HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D23352117F5AA0018438B /* HomeCollectionViewCell.m */; };
-		6C2D23382117F5AA0018438B /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C2D23362117F5AA0018438B /* HomeCollectionViewCell.xib */; };
+		6C2D23422117F9E80018438B /* HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D233E2117F9E80018438B /* HomeCollectionViewCell.m */; };
+		6C2D23432117F9E80018438B /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D233F2117F9E80018438B /* ImageTableViewCell.m */; };
+		6C2D23442117F9E80018438B /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C2D23402117F9E80018438B /* HomeCollectionViewCell.xib */; };
+		6C2D23492117F9F20018438B /* Image360Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D23452117F9F20018438B /* Image360Model.m */; };
+		6C2D234A2117F9F20018438B /* PhoneImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D23462117F9F20018438B /* PhoneImageModel.m */; };
+		6C2D234D2117F9FC0018438B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D234C2117F9FC0018438B /* ViewController.m */; };
+		6C2D23512117FBC80018438B /* HomeCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D234F2117FBC80018438B /* HomeCollectionReusableView.m */; };
+		6C2D23522117FBC80018438B /* HomeCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C2D23502117FBC80018438B /* HomeCollectionReusableView.xib */; };
+		6C2D2357211803C40018438B /* DDTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D2356211803C40018438B /* DDTest.swift */; };
 		6CB2ECA4211464C7000370EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2ECA3211464C7000370EF /* AppDelegate.m */; };
-		6CB2ECA7211464C7000370EF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2ECA6211464C7000370EF /* ViewController.m */; };
 		6CB2ECAA211464C7000370EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB2ECA8211464C7000370EF /* Main.storyboard */; };
 		6CB2ECAC211464C9000370EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CB2ECAB211464C9000370EF /* Assets.xcassets */; };
 		6CB2ECAF211464C9000370EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB2ECAD211464C9000370EF /* LaunchScreen.storyboard */; };
 		6CB2ECB2211464C9000370EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2ECB1211464C9000370EF /* main.m */; };
-		6CB2ECBA21146B10000370EF /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2ECB921146B10000370EF /* ImageTableViewCell.m */; };
-		6CB2ECBD21146CE8000370EF /* Image360Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2ECBC21146CE8000370EF /* Image360Model.m */; };
+		6CCCF5F82118258F00ED72D5 /* TopBannerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CCCF5F72118258F00ED72D5 /* TopBannerCollectionViewCell.m */; };
 		CA039F3CFA8B06FCACD8812F /* Pods_MyPhoto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BCF533DB48B097CD36823D /* Pods_MyPhoto.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		38BCF533DB48B097CD36823D /* Pods_MyPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C2D232E2117E91E0018438B /* PhoneImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhoneImageModel.h; sourceTree = "<group>"; };
-		6C2D232F2117E91E0018438B /* PhoneImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhoneImageModel.m; sourceTree = "<group>"; };
-		6C2D23342117F5AA0018438B /* HomeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewCell.h; sourceTree = "<group>"; };
-		6C2D23352117F5AA0018438B /* HomeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewCell.m; sourceTree = "<group>"; };
-		6C2D23362117F5AA0018438B /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		6C2D23392117F6B50018438B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		6C2D233D2117F9E80018438B /* HomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewCell.h; sourceTree = "<group>"; };
+		6C2D233E2117F9E80018438B /* HomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewCell.m; sourceTree = "<group>"; };
+		6C2D233F2117F9E80018438B /* ImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
+		6C2D23402117F9E80018438B /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		6C2D23412117F9E80018438B /* ImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTableViewCell.h; sourceTree = "<group>"; };
+		6C2D23452117F9F20018438B /* Image360Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image360Model.m; sourceTree = "<group>"; };
+		6C2D23462117F9F20018438B /* PhoneImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneImageModel.m; sourceTree = "<group>"; };
+		6C2D23472117F9F20018438B /* Image360Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image360Model.h; sourceTree = "<group>"; };
+		6C2D23482117F9F20018438B /* PhoneImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneImageModel.h; sourceTree = "<group>"; };
+		6C2D234B2117F9FC0018438B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6C2D234C2117F9FC0018438B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6C2D234E2117FBC80018438B /* HomeCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCollectionReusableView.h; sourceTree = "<group>"; };
+		6C2D234F2117FBC80018438B /* HomeCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionReusableView.m; sourceTree = "<group>"; };
+		6C2D23502117FBC80018438B /* HomeCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionReusableView.xib; sourceTree = "<group>"; };
+		6C2D2353211800840018438B /* MyPhoto-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyPhoto-Bridging-Header.h"; sourceTree = "<group>"; };
+		6C2D2356211803C40018438B /* DDTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDTest.swift; sourceTree = "<group>"; };
 		6CB2EC9F211464C7000370EF /* MyPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB2ECA2211464C7000370EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6CB2ECA3211464C7000370EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6CB2ECA5211464C7000370EF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6CB2ECA6211464C7000370EF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6CB2ECA9211464C7000370EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6CB2ECAB211464C9000370EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6CB2ECAE211464C9000370EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6CB2ECB0211464C9000370EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CB2ECB1211464C9000370EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6CB2ECB821146B10000370EF /* ImageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageTableViewCell.h; sourceTree = "<group>"; };
-		6CB2ECB921146B10000370EF /* ImageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
-		6CB2ECBB21146CE8000370EF /* Image360Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Image360Model.h; sourceTree = "<group>"; };
-		6CB2ECBC21146CE8000370EF /* Image360Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Image360Model.m; sourceTree = "<group>"; };
+		6CCCF5F62118258F00ED72D5 /* TopBannerCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopBannerCollectionViewCell.h; sourceTree = "<group>"; };
+		6CCCF5F72118258F00ED72D5 /* TopBannerCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopBannerCollectionViewCell.m; sourceTree = "<group>"; };
 		D8E24FAC404B76DA512BE856 /* Pods-MyPhoto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPhoto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyPhoto/Pods-MyPhoto.debug.xcconfig"; sourceTree = "<group>"; };
 		EE8C3D247DCAB3AC3399A76B /* Pods-MyPhoto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPhoto.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyPhoto/Pods-MyPhoto.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,6 +70,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C2D233A2117F9A90018438B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6C2D23472117F9F20018438B /* Image360Model.h */,
+				6C2D23452117F9F20018438B /* Image360Model.m */,
+				6C2D23482117F9F20018438B /* PhoneImageModel.h */,
+				6C2D23462117F9F20018438B /* PhoneImageModel.m */,
+				6C2D2356211803C40018438B /* DDTest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6C2D233B2117F9A90018438B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6C2D233D2117F9E80018438B /* HomeCollectionViewCell.h */,
+				6C2D233E2117F9E80018438B /* HomeCollectionViewCell.m */,
+				6C2D23402117F9E80018438B /* HomeCollectionViewCell.xib */,
+				6C2D23412117F9E80018438B /* ImageTableViewCell.h */,
+				6C2D233F2117F9E80018438B /* ImageTableViewCell.m */,
+				6C2D234E2117FBC80018438B /* HomeCollectionReusableView.h */,
+				6C2D234F2117FBC80018438B /* HomeCollectionReusableView.m */,
+				6C2D23502117FBC80018438B /* HomeCollectionReusableView.xib */,
+				6C2D2353211800840018438B /* MyPhoto-Bridging-Header.h */,
+				6CCCF5F62118258F00ED72D5 /* TopBannerCollectionViewCell.h */,
+				6CCCF5F72118258F00ED72D5 /* TopBannerCollectionViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6C2D233C2117F9A90018438B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6C2D234B2117F9FC0018438B /* ViewController.h */,
+				6C2D234C2117F9FC0018438B /* ViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		6CB2EC96211464C7000370EF = {
 			isa = PBXGroup;
 			children = (
@@ -80,24 +130,16 @@
 		6CB2ECA1211464C7000370EF /* MyPhoto */ = {
 			isa = PBXGroup;
 			children = (
+				6C2D233C2117F9A90018438B /* Controllers */,
+				6C2D233A2117F9A90018438B /* Models */,
+				6C2D233B2117F9A90018438B /* Views */,
 				6CB2ECA2211464C7000370EF /* AppDelegate.h */,
 				6CB2ECA3211464C7000370EF /* AppDelegate.m */,
-				6CB2ECA5211464C7000370EF /* ViewController.h */,
-				6CB2ECA6211464C7000370EF /* ViewController.m */,
 				6CB2ECA8211464C7000370EF /* Main.storyboard */,
 				6CB2ECAB211464C9000370EF /* Assets.xcassets */,
 				6CB2ECAD211464C9000370EF /* LaunchScreen.storyboard */,
 				6CB2ECB0211464C9000370EF /* Info.plist */,
 				6CB2ECB1211464C9000370EF /* main.m */,
-				6CB2ECB821146B10000370EF /* ImageTableViewCell.h */,
-				6CB2ECB921146B10000370EF /* ImageTableViewCell.m */,
-				6CB2ECBB21146CE8000370EF /* Image360Model.h */,
-				6CB2ECBC21146CE8000370EF /* Image360Model.m */,
-				6C2D232E2117E91E0018438B /* PhoneImageModel.h */,
-				6C2D232F2117E91E0018438B /* PhoneImageModel.m */,
-				6C2D23342117F5AA0018438B /* HomeCollectionViewCell.h */,
-				6C2D23352117F5AA0018438B /* HomeCollectionViewCell.m */,
-				6C2D23362117F5AA0018438B /* HomeCollectionViewCell.xib */,
 				6C2D23392117F6B50018438B /* PrefixHeader.pch */,
 			);
 			path = MyPhoto;
@@ -153,6 +195,7 @@
 				TargetAttributes = {
 					6CB2EC9E211464C7000370EF = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -182,7 +225,8 @@
 				6CB2ECAF211464C9000370EF /* LaunchScreen.storyboard in Resources */,
 				6CB2ECAC211464C9000370EF /* Assets.xcassets in Resources */,
 				6CB2ECAA211464C7000370EF /* Main.storyboard in Resources */,
-				6C2D23382117F5AA0018438B /* HomeCollectionViewCell.xib in Resources */,
+				6C2D23522117FBC80018438B /* HomeCollectionReusableView.xib in Resources */,
+				6C2D23442117F9E80018438B /* HomeCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +241,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MyPhoto/Pods-MyPhoto-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -204,6 +249,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -238,13 +284,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CB2ECA7211464C7000370EF /* ViewController.m in Sources */,
-				6CB2ECBA21146B10000370EF /* ImageTableViewCell.m in Sources */,
+				6CCCF5F82118258F00ED72D5 /* TopBannerCollectionViewCell.m in Sources */,
+				6C2D234D2117F9FC0018438B /* ViewController.m in Sources */,
 				6CB2ECB2211464C9000370EF /* main.m in Sources */,
+				6C2D23512117FBC80018438B /* HomeCollectionReusableView.m in Sources */,
+				6C2D23432117F9E80018438B /* ImageTableViewCell.m in Sources */,
 				6CB2ECA4211464C7000370EF /* AppDelegate.m in Sources */,
-				6C2D23372117F5AA0018438B /* HomeCollectionViewCell.m in Sources */,
-				6C2D23302117E91E0018438B /* PhoneImageModel.m in Sources */,
-				6CB2ECBD21146CE8000370EF /* Image360Model.m in Sources */,
+				6C2D2357211803C40018438B /* DDTest.swift in Sources */,
+				6C2D23422117F9E80018438B /* HomeCollectionViewCell.m in Sources */,
+				6C2D234A2117F9F20018438B /* PhoneImageModel.m in Sources */,
+				6C2D23492117F9F20018438B /* Image360Model.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,7 +434,10 @@
 			baseConfigurationReference = D8E24FAC404B76DA512BE856 /* Pods-MyPhoto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MyPhoto/PrefixHeader.pch";
 				INFOPLIST_FILE = MyPhoto/Info.plist;
@@ -395,6 +447,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pintec.MyPhoto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyPhoto/Views/MyPhoto-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -404,7 +459,10 @@
 			baseConfigurationReference = EE8C3D247DCAB3AC3399A76B /* Pods-MyPhoto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MyPhoto/PrefixHeader.pch";
 				INFOPLIST_FILE = MyPhoto/Info.plist;
@@ -414,6 +472,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pintec.MyPhoto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyPhoto/Views/MyPhoto-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - FSPagerView (0.7.1)
   - MJExtension (3.0.15.1)
   - MJRefresh (3.1.15.3)
   - SDWebImage (4.4.1):
@@ -22,6 +23,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - FSPagerView
   - MJExtension
   - MJRefresh
   - SDWebImage (~> 4.0)
@@ -29,16 +31,18 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - FSPagerView
     - MJExtension
     - MJRefresh
     - SDWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  FSPagerView: 958aba39684e1573755ddcfcc29f7eebb8413cee
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
 
-PODFILE CHECKSUM: c3357c926622ad40a6491d4a1ed74b32e9c503d8
+PODFILE CHECKSUM: bded35919eaa0f6c6b76da96c951a5ff8a0b3be4
 
 COCOAPODS: 1.5.3
