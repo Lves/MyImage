@@ -17,5 +17,5 @@ typedef void(^HomeNetBlock)(NSArray *images);
 + (void)requestBannerSuccessBlock:(HomeNetBlock)success failure:(NetFailureBlock)failure;
 + (void)requestCategoryDetail:(NSString *)categoryId skip:(NSInteger) skip successBlock:(HomeNetBlock)success failure:(NetFailureBlock)failure;
 + (void)requestCategorySuccessBlock:(HomeNetBlock)success failure:(NetFailureBlock)failure;
-+(void) searchImages:(NSString *)keyword successBlock:(HomeNetBlock)success failure:(NetFailureBlock)failure;
++(void) searchImages:(NSString *)keyword skip:(NSInteger)skip successBlock:(HomeNetBlock)success failure:(NetFailureBlock)failure;
 @end

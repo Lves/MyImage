@@ -8,14 +8,16 @@
 
 #import "SearchViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <MJRefresh/MJRefresh.h>
 #import "HomeCollectionViewCell.h"
 #import "SearchImageModel.h"
 #import "BaseNetApi.h"
+
 @interface SearchViewController ()<UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) UISearchBar *searchBar;
-@property (nonatomic,strong) NSArray *dataArray;
-
+@property (nonatomic,strong) NSMutableArray *dataArray;
+@property (nonatomic, copy) NSString *keyword;
 @end
 
 @implementation SearchViewController
@@ -36,8 +38,15 @@
     self.title = @"搜索";
     [self setCollectionView];
     //隐藏导航栏上的返回按钮
-    [self.navigationItem setHidesBackButton:YES];
+//    [self.navigationItem setHidesBackButton:YES];
     [self setSearchBar];
+    
+    __weak typeof(self) weakSelf = self;
+    self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf searchImages:weakSelf.keyword skip:weakSelf.dataArray.count];
+    }];
+    
+    
 }
 - (void)setCollectionView{
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;//[UICollectionViewFlowLayout new];
@@ -48,12 +57,23 @@
     
 }
 
-- (void)searchImages:(NSString *)keyWord{
+- (void)searchImages:(NSString *)keyWord skip:(NSInteger)skip{
     if (keyWord.length > 0) {
         __weak typeof(self) weakSelf = self;
-        [BaseNetApi searchImages:keyWord successBlock:^(NSArray *images) {
-            weakSelf.dataArray = images;
-            [weakSelf.collectionView reloadData];
+        [BaseNetApi searchImages:keyWord skip:skip successBlock:^(NSArray *images) {
+            if (skip == 0) {//首页
+                weakSelf.dataArray = [images mutableCopy];
+                [weakSelf.collectionView reloadData];
+            }else {//加载更多
+                if (images.count > 0) {
+                     [weakSelf.dataArray addObjectsFromArray:images];
+                     [weakSelf.collectionView reloadData];
+                     [weakSelf.collectionView.mj_footer endRefreshing];
+                }else {
+                     [weakSelf.collectionView.mj_footer endRefreshingWithNoMoreData];
+                }
+            }
+            
         } failure:^(NSError *error) {
             weakSelf.dataArray = nil;
             [weakSelf.collectionView reloadData];
@@ -66,7 +86,7 @@
 
 - (void)setSearchBar{
     //用来放searchBar的View
-    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(5, 7, self.view.frame.size.width, 30)];
+    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(5, 7, self.view.frame.size.width-30, 30)];
     //创建searchBar
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(titleView.frame) - 15, 30)];
     //默认提示文字
@@ -77,7 +97,6 @@
     searchBar.delegate = self;
     //显示右侧取消按钮
     searchBar.showsCancelButton = YES;
-    
     //光标颜色
     //    searchBar.tintColor = HEXCOLOR(0x595959);
     //拿到searchBar的输入框
@@ -106,12 +125,14 @@
 }
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    [self searchImages:searchBar.text];
+    self.keyword = searchBar.text;
+    [self searchImages:searchBar.text skip:0];
+    [self.searchBar resignFirstResponder];
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-     [self.searchBar resignFirstResponder];
-     [self.navigationController popViewControllerAnimated:YES];
+    [self.searchBar resignFirstResponder];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
