@@ -55,6 +55,51 @@
             </objects>
             <point key="canvasLocation" x="1855" y="412"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="dU4-iY-mP4">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" id="sV7-oS-fc7" customClass="SearchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sba-mC-kx2"/>
+                        <viewControllerLayoutGuide type="bottom" id="WNr-7I-9KH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sRk-LN-AaE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="40E-Lv-W92">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="q5w-Ge-Azq">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="sV7-oS-fc7" id="ia3-8X-MnC"/>
+                                    <outlet property="delegate" destination="sV7-oS-fc7" id="lfZ-N7-k2R"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="40E-Lv-W92" firstAttribute="top" secondItem="Sba-mC-kx2" secondAttribute="bottom" id="5A2-kA-mai"/>
+                            <constraint firstItem="40E-Lv-W92" firstAttribute="leading" secondItem="sRk-LN-AaE" secondAttribute="leading" id="6Mo-u6-EbV"/>
+                            <constraint firstAttribute="trailing" secondItem="40E-Lv-W92" secondAttribute="trailing" id="9MJ-4E-4Kh"/>
+                            <constraint firstItem="WNr-7I-9KH" firstAttribute="top" secondItem="40E-Lv-W92" secondAttribute="bottom" id="tgd-KM-pP0"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="collectionView" destination="40E-Lv-W92" id="MJn-sb-xyg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="638-KA-SQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="121.88905547226388"/>
+        </scene>
         <!--首页-->
         <scene sceneID="w8f-gn-7tl">
             <objects>
@@ -228,11 +273,11 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyTableViewCell" rowHeight="49" id="hGg-oS-fvP">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyTableViewCell" rowHeight="49" id="hGg-oS-fvP">
                                         <rect key="frame" x="0.0" y="28" width="375" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hGg-oS-fvP" id="oBg-rz-7Ih">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="48.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="48.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

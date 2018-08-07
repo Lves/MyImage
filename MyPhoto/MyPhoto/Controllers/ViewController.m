@@ -15,7 +15,7 @@
 #import "HomeCollectionViewCell.h"
 #import <MJRefresh/MJRefresh.h>
 #import "HomeCollectionReusableView.h"
-
+#import "SearchViewController.h"
 @interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -50,7 +50,10 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"搜索" style:UIBarButtonItemStylePlain target:self action:@selector(search)];
 }
 -(void)search{
-    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    SearchViewController *controller = [sb instantiateViewControllerWithIdentifier:@"SearchViewController"];
+    controller.hidesBottomBarWhenPushed = true;
+    [self.navigationController pushViewController:controller animated:true];
 }
 
 
