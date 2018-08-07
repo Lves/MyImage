@@ -27,6 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"首页";
+    [self naviBar];
+    
     
     [self requestApi];
     
@@ -43,6 +45,14 @@
     }];
     [self.collectionView.mj_header beginRefreshing];
 }
+
+- (void)naviBar{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"搜索" style:UIBarButtonItemStylePlain target:self action:@selector(search)];
+}
+-(void)search{
+    
+}
+
 
 
 -(void)requestApi{
@@ -117,7 +127,7 @@
 #pragma mark ColloectionHeader
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
     if (section == 0) {
-        return CGSizeMake(kScreenWidth, 200);
+        return CGSizeMake(kScreenWidth, 230);
     }
     return CGSizeZero;
 }

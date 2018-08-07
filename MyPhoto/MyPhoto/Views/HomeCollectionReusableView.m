@@ -9,6 +9,7 @@
 #import "HomeCollectionReusableView.h"
 #import "Image360Model.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <FSPagerView/FSPagerView-Swift.h>
 @implementation HomeCollectionReusableView
 @synthesize pagerView;
 - (void)awakeFromNib {
@@ -19,7 +20,10 @@
     pagerView.isInfinite = true;
     pagerView.delegate = self;
     pagerView.dataSource = self;
-    pagerView.automaticSlidingInterval = 5;
+    CGAffineTransform transform = CGAffineTransformMakeScale(0.84, 1.7);
+    pagerView.itemSize =  CGSizeApplyAffineTransform(pagerView.frame.size, transform);
+    pagerView.transformer = [[FSPagerViewTransformer alloc] initWithType:FSPagerViewTransformerTypeOverlap];
+    pagerView.automaticSlidingInterval = 4;
 }
 
 #pragma mark
