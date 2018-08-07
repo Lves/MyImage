@@ -22,7 +22,7 @@
 @synthesize dataArray;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.title = @"分类";
     self.tableView.tableFooterView = [UIView new];
     __weak typeof(self) weakSelf = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -79,8 +79,10 @@
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     CategoryViewController *controller = [sb instantiateViewControllerWithIdentifier:@"CategoryViewController"];
+    controller.hidesBottomBarWhenPushed = true;
     ImageCategory *cat = dataArray[indexPath.row];
     controller.categoryId = cat.idStr;
+    controller.name = cat.name;
     [self.navigationController pushViewController:controller animated:true];
     
 }

@@ -10,4 +10,5 @@
 
 @interface CategoryViewController : UIViewController
 @property (nonatomic,copy) NSString *categoryId;
+@property (nonatomic,copy) NSString *name;
 @end

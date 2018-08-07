@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C211060211930D00082DDD4 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C21105F211930D00082DDD4 /* MyViewController.m */; };
 		6C2D23422117F9E80018438B /* HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D233E2117F9E80018438B /* HomeCollectionViewCell.m */; };
 		6C2D23432117F9E80018438B /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D233F2117F9E80018438B /* ImageTableViewCell.m */; };
 		6C2D23442117F9E80018438B /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C2D23402117F9E80018438B /* HomeCollectionViewCell.xib */; };
@@ -31,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		38BCF533DB48B097CD36823D /* Pods_MyPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C21105E211930D00082DDD4 /* MyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		6C21105F211930D00082DDD4 /* MyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		6C2D23392117F6B50018438B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		6C2D233D2117F9E80018438B /* HomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewCell.h; sourceTree = "<group>"; };
 		6C2D233E2117F9E80018438B /* HomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewCell.m; sourceTree = "<group>"; };
@@ -125,6 +128,8 @@
 				6CCCF5FA211838EC00ED72D5 /* CategoryViewController.m */,
 				6CCCF67F21185BEE00ED72D5 /* CategoryListViewController.h */,
 				6CCCF68021185BEE00ED72D5 /* CategoryListViewController.m */,
+				6C21105E211930D00082DDD4 /* MyViewController.h */,
+				6C21105F211930D00082DDD4 /* MyViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				6C2D23432117F9E80018438B /* ImageTableViewCell.m in Sources */,
 				6CB2ECA4211464C7000370EF /* AppDelegate.m in Sources */,
 				6C2D2357211803C40018438B /* DDTest.swift in Sources */,
+				6C211060211930D00082DDD4 /* MyViewController.m in Sources */,
 				6CCCF68121185BEE00ED72D5 /* CategoryListViewController.m in Sources */,
 				6C2D23422117F9E80018438B /* HomeCollectionViewCell.m in Sources */,
 				6C2D234A2117F9F20018438B /* PhoneImageModel.m in Sources */,
