@@ -16,10 +16,11 @@
 #import <MJRefresh/MJRefresh.h>
 #import "HomeCollectionReusableView.h"
 #import "SearchViewController.h"
+#import "BaseNetApi.h"
 @interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic,strong) NSArray *dataArray;
+@property (nonatomic,strong) NSMutableArray *dataArray;
 @property (nonatomic,strong) NSArray *topBannerArray;
 @end
 
@@ -28,9 +29,8 @@
     [super viewDidLoad];
     self.title = @"首页";
     [self naviBar];
-    
-    
-    [self requestApi];
+    //banner
+    [self requestBanner];
     
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;//[UICollectionViewFlowLayout new];
     flowLayout.minimumLineSpacing = 0;
@@ -42,6 +42,9 @@
     __weak typeof(self) weakSelf = self;
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf requestPhoneImages];
+    }];
+    self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf requestMorePhoneImages:weakSelf.dataArray.count];
     }];
     [self.collectionView.mj_header beginRefreshing];
 }
@@ -58,52 +61,41 @@
 
 
 
--(void)requestApi{
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-
-    NSURL *URL = [NSURL URLWithString:@"http://wallpaper.apc.360.cn/index.php?c=WallPaperAndroid&a=getAppsByCategory&cid=9&start=0&count=5"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+-(void)requestBanner{
     __weak typeof(self) weakSelf = self;
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            NSLog(@"Error: %@", error);
-        } else {
-            NSLog(@"%@ %@", response, responseObject);
-            NSArray *jsonArray = responseObject[@"data"];
-            NSArray *imageArray = [Image360Model mj_objectArrayWithKeyValuesArray:jsonArray];
-            weakSelf.topBannerArray = imageArray;
-            [weakSelf.collectionView reloadData];
-        }
+    [BaseNetApi requestBannerSuccessBlock:^(NSArray *images) {
+        weakSelf.topBannerArray = images;
+        [weakSelf.collectionView reloadData];
+    } failure:^(NSError *error) {
+        
     }];
-    [dataTask resume];
 }
 
 -(void)requestPhoneImages{
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
-    NSURL *URL = [NSURL URLWithString:@"http://service.picasso.adesk.com/v1/vertical/vertical?limit=40&skip=0&adult=false&first=0&order=hot"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-    
     __weak typeof(self) weakSelf = self;
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            NSLog(@"Error: %@", error);
-        } else {
-            NSLog(@"%@ %@", response, responseObject);
-            if ([responseObject[@"msg"] isEqualToString:@"success"]) {
-                NSArray *jsonArray = responseObject[@"res"][@"vertical"];
-                NSArray *imageArray = [PhoneImageModel mj_objectArrayWithKeyValuesArray:jsonArray];
-                weakSelf.dataArray = imageArray;
-            }else {
-                weakSelf.dataArray = nil;
-            }
-            [weakSelf.collectionView reloadData];
+    [BaseNetApi requestHome:0 SuccessBlock:^(NSArray *images) {
+        if (images.count > 0) {
+            weakSelf.dataArray = [images mutableCopy];
         }
+        [weakSelf.collectionView reloadData];
+        [weakSelf.collectionView.mj_header endRefreshing];
+    } failure:^(NSError *error) {
         [weakSelf.collectionView.mj_header endRefreshing];
     }];
-    [dataTask resume];
+}
+-(void)requestMorePhoneImages:(NSInteger)skip{
+    __weak typeof(self) weakSelf = self;
+    [BaseNetApi requestHome:skip SuccessBlock:^(NSArray *images) {
+        if (images.count > 0) {
+            [weakSelf.dataArray addObjectsFromArray:images];
+            [weakSelf.collectionView reloadData];
+            [weakSelf.collectionView.mj_footer endRefreshing];
+        }else{
+            [weakSelf.collectionView.mj_footer endRefreshingWithNoMoreData];
+        }
+    } failure:^(NSError *error) {
+        [weakSelf.collectionView.mj_footer endRefreshing];
+    }];
 }
 
 #pragma mark - TableView

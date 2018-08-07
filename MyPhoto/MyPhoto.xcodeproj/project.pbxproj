@@ -10,6 +10,7 @@
 		6C211060211930D00082DDD4 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C21105F211930D00082DDD4 /* MyViewController.m */; };
 		6C211071211947390082DDD4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C211070211947390082DDD4 /* SearchViewController.m */; };
 		6C211074211952200082DDD4 /* SearchImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C211073211952200082DDD4 /* SearchImageModel.m */; };
+		6C21107821197AB00082DDD4 /* BaseNetApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C21107721197AB00082DDD4 /* BaseNetApi.m */; };
 		6C2D23422117F9E80018438B /* HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D233E2117F9E80018438B /* HomeCollectionViewCell.m */; };
 		6C2D23432117F9E80018438B /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D233F2117F9E80018438B /* ImageTableViewCell.m */; };
 		6C2D23442117F9E80018438B /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C2D23402117F9E80018438B /* HomeCollectionViewCell.xib */; };
@@ -40,6 +41,8 @@
 		6C211070211947390082DDD4 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		6C211072211952200082DDD4 /* SearchImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchImageModel.h; sourceTree = "<group>"; };
 		6C211073211952200082DDD4 /* SearchImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchImageModel.m; sourceTree = "<group>"; };
+		6C21107621197AB00082DDD4 /* BaseNetApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNetApi.h; sourceTree = "<group>"; };
+		6C21107721197AB00082DDD4 /* BaseNetApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNetApi.m; sourceTree = "<group>"; };
 		6C2D23392117F6B50018438B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		6C2D233D2117F9E80018438B /* HomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewCell.h; sourceTree = "<group>"; };
 		6C2D233E2117F9E80018438B /* HomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewCell.m; sourceTree = "<group>"; };
@@ -91,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C21107521197A910082DDD4 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				6C21107621197AB00082DDD4 /* BaseNetApi.h */,
+				6C21107721197AB00082DDD4 /* BaseNetApi.m */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
 		6C2D233A2117F9A90018438B /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +177,7 @@
 		6CB2ECA1211464C7000370EF /* MyPhoto */ = {
 			isa = PBXGroup;
 			children = (
+				6C21107521197A910082DDD4 /* NetWork */,
 				6C2D233C2117F9A90018438B /* Controllers */,
 				6C2D233A2117F9A90018438B /* Models */,
 				6C2D233B2117F9A90018438B /* Views */,
@@ -326,6 +339,7 @@
 				6C211074211952200082DDD4 /* SearchImageModel.m in Sources */,
 				6CCCF5FB211838EC00ED72D5 /* CategoryViewController.m in Sources */,
 				6C2D23512117FBC80018438B /* HomeCollectionReusableView.m in Sources */,
+				6C21107821197AB00082DDD4 /* BaseNetApi.m in Sources */,
 				6C211071211947390082DDD4 /* SearchViewController.m in Sources */,
 				6C2D23432117F9E80018438B /* ImageTableViewCell.m in Sources */,
 				6CB2ECA4211464C7000370EF /* AppDelegate.m in Sources */,

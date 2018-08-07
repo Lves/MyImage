@@ -16,10 +16,10 @@
 
 @interface CategoryViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic,strong) NSArray *dataArray;
+@property (nonatomic,strong) NSMutableArray *dataArray;
 
 @end
-
+static NSInteger kStep = 20;
 @implementation CategoryViewController
 
 - (void)viewDidLoad {
@@ -35,13 +35,19 @@
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf requestPhoneImages];
     }];
+
+    self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf requestMore];
+    }];
+    
     [self.collectionView.mj_header beginRefreshing];
+    
 }
 -(void)requestPhoneImages{
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    NSString *urlStr = [NSString stringWithFormat:@"http://service.picasso.adesk.com/v1/vertical/category/%@/vertical?limit=30&adult=false&first=1&order=new",self.categoryId];
+    NSString *urlStr = [NSString stringWithFormat:@"http://service.picasso.adesk.com/v1/vertical/category/%@/vertical?limit=%lu&adult=false&first=0&order=new",self.categoryId,kStep];
     NSURL *URL = [NSURL URLWithString:urlStr];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
@@ -54,13 +60,46 @@
             if ([responseObject[@"msg"] isEqualToString:@"success"]) {
                 NSArray *jsonArray = responseObject[@"res"][@"vertical"];
                 NSArray *imageArray = [PhoneImageModel mj_objectArrayWithKeyValuesArray:jsonArray];
-                weakSelf.dataArray = imageArray;
+                weakSelf.dataArray = [imageArray mutableCopy];
             }else {
                 weakSelf.dataArray = nil;
             }
             [weakSelf.collectionView reloadData];
         }
         [weakSelf.collectionView.mj_header endRefreshing];
+    }];
+    [dataTask resume];
+}
+- (void)requestMore{
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSString *urlStr = [NSString stringWithFormat:@"http://service.picasso.adesk.com/v1/vertical/category/%@/vertical?limit=%lu&adult=false&first=1&skip=%lu&order=new",self.categoryId, kStep, self.dataArray.count];
+    NSURL *URL = [NSURL URLWithString:urlStr];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    
+    __weak typeof(self) weakSelf = self;
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+            [weakSelf.collectionView.mj_footer endRefreshing];
+        } else {
+            NSLog(@"%@ %@", response, responseObject);
+            if ([responseObject[@"msg"] isEqualToString:@"success"]) {
+                NSArray *jsonArray = responseObject[@"res"][@"vertical"];
+                NSArray *imageArray = [PhoneImageModel mj_objectArrayWithKeyValuesArray:jsonArray];
+                if (imageArray.count == 0) {
+                    [weakSelf.collectionView.mj_footer endRefreshingWithNoMoreData];
+                }else {
+                    [weakSelf.dataArray addObjectsFromArray:imageArray];
+                    [weakSelf.collectionView reloadData];
+                    [weakSelf.collectionView.mj_footer endRefreshing];
+                }
+            }else {
+                [weakSelf.collectionView.mj_footer endRefreshing];
+            }
+        }
+        
     }];
     [dataTask resume];
 }
