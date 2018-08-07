@@ -7,11 +7,10 @@
 //
 
 #import "SearchViewController.h"
-#import <AFNetworking/AFNetworking.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-#import <MJExtension/MJExtension.h>
 #import "HomeCollectionViewCell.h"
 #import "SearchImageModel.h"
+#import "BaseNetApi.h"
 @interface SearchViewController ()<UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) UISearchBar *searchBar;
@@ -51,30 +50,14 @@
 
 - (void)searchImages:(NSString *)keyWord{
     if (keyWord.length > 0) {
-        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-        
-        NSString *urlStr = [NSString stringWithFormat:@"http://wallpaper.apc.360.cn/index.php?c=WallPaper&a=search&start=0&count=40&kw=%@&start=0",keyWord];
-        NSURL *URL = [NSURL URLWithString:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-        NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-        
         __weak typeof(self) weakSelf = self;
-        NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-            if (error) {
-                NSLog(@"Error: %@", error);
-            } else {
-                NSLog(@"%@ %@", response, responseObject);
-                if ([responseObject[@"errmsg"] isEqualToString:@"success"]) {
-                    NSArray *jsonArray = responseObject[@"data"];
-                    NSArray *imageArray = [SearchImageModel mj_objectArrayWithKeyValuesArray:jsonArray];
-                    weakSelf.dataArray = imageArray;
-                }else {
-                    weakSelf.dataArray = nil;
-                }
-                [weakSelf.collectionView reloadData];
-            }
+        [BaseNetApi searchImages:keyWord successBlock:^(NSArray *images) {
+            weakSelf.dataArray = images;
+            [weakSelf.collectionView reloadData];
+        } failure:^(NSError *error) {
+            weakSelf.dataArray = nil;
+            [weakSelf.collectionView reloadData];
         }];
-        [dataTask resume];
     }else {
         
     }

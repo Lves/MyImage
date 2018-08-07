@@ -8,11 +8,10 @@
 
 #import "CategoryListViewController.h"
 #import <MJRefresh/MJRefresh.h>
-#import <MJExtension/MJExtension.h>
-#import <AFNetworking/AFNetworking.h>
 #import "ImageCategory.h"
 #import "CategoryTableViewCell.h"
 #import "CategoryViewController.h"
+#import "BaseNetApi.h"
 @interface CategoryListViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSArray *dataArray;
@@ -32,30 +31,14 @@
 }
 
 -(void)requestCategory{
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
-    NSURL *URL = [NSURL URLWithString:@"http://service.picasso.adesk.com/v1/vertical/category?adult=false&first=1"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-    
     __weak typeof(self) weakSelf = self;
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            NSLog(@"Error: %@", error);
-        } else {
-            NSLog(@"%@ %@", response, responseObject);
-            if ([responseObject[@"msg"] isEqualToString:@"success"]) {
-                NSArray *jsonArray = responseObject[@"res"][@"category"];
-                NSArray *imageArray = [ImageCategory mj_objectArrayWithKeyValuesArray:jsonArray];
-                weakSelf.dataArray = imageArray;
-            }else {
-                weakSelf.dataArray = nil;
-            }
-            [weakSelf.tableView reloadData];
-        }
+    [BaseNetApi requestCategorySuccessBlock:^(NSArray *images) {
+        weakSelf.dataArray = images;
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.mj_header endRefreshing];
+    } failure:^(NSError *error) {
         [weakSelf.tableView.mj_header endRefreshing];
     }];
-    [dataTask resume];
 }
 #pragma mark - TableView Delegate & DataSource
 

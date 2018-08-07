@@ -7,19 +7,16 @@
 //
 
 #import "CategoryViewController.h"
-#import <AFNetworking/AFNetworking.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-#import <MJExtension/MJExtension.h>
 #import "PhoneImageModel.h"
 #import "HomeCollectionViewCell.h"
 #import <MJRefresh/MJRefresh.h>
-
+#import "BaseNetApi.h"
 @interface CategoryViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,strong) NSMutableArray *dataArray;
 
 @end
-static NSInteger kStep = 20;
 @implementation CategoryViewController
 
 - (void)viewDidLoad {
@@ -44,64 +41,30 @@ static NSInteger kStep = 20;
     
 }
 -(void)requestPhoneImages{
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
-    NSString *urlStr = [NSString stringWithFormat:@"http://service.picasso.adesk.com/v1/vertical/category/%@/vertical?limit=%lu&adult=false&first=0&order=new",self.categoryId,kStep];
-    NSURL *URL = [NSURL URLWithString:urlStr];
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-    
     __weak typeof(self) weakSelf = self;
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            NSLog(@"Error: %@", error);
-        } else {
-            NSLog(@"%@ %@", response, responseObject);
-            if ([responseObject[@"msg"] isEqualToString:@"success"]) {
-                NSArray *jsonArray = responseObject[@"res"][@"vertical"];
-                NSArray *imageArray = [PhoneImageModel mj_objectArrayWithKeyValuesArray:jsonArray];
-                weakSelf.dataArray = [imageArray mutableCopy];
-            }else {
-                weakSelf.dataArray = nil;
-            }
-            [weakSelf.collectionView reloadData];
+    [BaseNetApi requestCategoryDetail:self.categoryId skip:0 successBlock:^(NSArray *images) {
+        if (images.count > 0) {
+            weakSelf.dataArray = [images mutableCopy];
         }
+        [weakSelf.collectionView reloadData];
+        [weakSelf.collectionView.mj_header endRefreshing];
+    } failure:^(NSError *error) {
         [weakSelf.collectionView.mj_header endRefreshing];
     }];
-    [dataTask resume];
 }
 - (void)requestMore{
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
-    NSString *urlStr = [NSString stringWithFormat:@"http://service.picasso.adesk.com/v1/vertical/category/%@/vertical?limit=%lu&adult=false&first=1&skip=%lu&order=new",self.categoryId, kStep, self.dataArray.count];
-    NSURL *URL = [NSURL URLWithString:urlStr];
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-    
     __weak typeof(self) weakSelf = self;
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            NSLog(@"Error: %@", error);
+    [BaseNetApi requestCategoryDetail:self.categoryId skip:self.dataArray.count successBlock:^(NSArray *images) {
+        if (images.count > 0) {
+            [weakSelf.dataArray addObjectsFromArray:images];
+            [weakSelf.collectionView reloadData];
             [weakSelf.collectionView.mj_footer endRefreshing];
-        } else {
-            NSLog(@"%@ %@", response, responseObject);
-            if ([responseObject[@"msg"] isEqualToString:@"success"]) {
-                NSArray *jsonArray = responseObject[@"res"][@"vertical"];
-                NSArray *imageArray = [PhoneImageModel mj_objectArrayWithKeyValuesArray:jsonArray];
-                if (imageArray.count == 0) {
-                    [weakSelf.collectionView.mj_footer endRefreshingWithNoMoreData];
-                }else {
-                    [weakSelf.dataArray addObjectsFromArray:imageArray];
-                    [weakSelf.collectionView reloadData];
-                    [weakSelf.collectionView.mj_footer endRefreshing];
-                }
-            }else {
-                [weakSelf.collectionView.mj_footer endRefreshing];
-            }
+        }else{
+            [weakSelf.collectionView.mj_footer endRefreshingWithNoMoreData];
         }
-        
+    } failure:^(NSError *error) {
+         [weakSelf.collectionView.mj_footer endRefreshing];
     }];
-    [dataTask resume];
 }
 
 #pragma mark - TableView

@@ -7,10 +7,9 @@
 //
 
 #import "ViewController.h"
-#import <AFNetworking/AFNetworking.h>
+
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "Image360Model.h"
-#import <MJExtension/MJExtension.h>
 #import "PhoneImageModel.h"
 #import "HomeCollectionViewCell.h"
 #import <MJRefresh/MJRefresh.h>
