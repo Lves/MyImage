@@ -12,6 +12,7 @@
 #import "HomeCollectionViewCell.h"
 #import "SearchImageModel.h"
 #import "BaseNetApi.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface SearchViewController ()<UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -59,6 +60,7 @@
 
 - (void)searchImages:(NSString *)keyWord skip:(NSInteger)skip{
     if (keyWord.length > 0) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         __weak typeof(self) weakSelf = self;
         [BaseNetApi searchImages:keyWord skip:skip successBlock:^(NSArray *images) {
             if (skip == 0) {//首页
@@ -73,10 +75,11 @@
                      [weakSelf.collectionView.mj_footer endRefreshingWithNoMoreData];
                 }
             }
-            
+            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
         } failure:^(NSError *error) {
             weakSelf.dataArray = nil;
             [weakSelf.collectionView reloadData];
+            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
         }];
     }else {
         
