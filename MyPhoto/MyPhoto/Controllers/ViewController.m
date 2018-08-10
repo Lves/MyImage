@@ -58,6 +58,13 @@
     [self.navigationController pushViewController:controller animated:true];
 }
 
+- (void)requestDouban{
+    [BaseNetApi requestDouBanSuccessBlock:^(NSArray *array) {
+        NSLog(@"%@",array);
+    } failure:^(NSError *error) {
+        
+    }];
+}
 
 
 -(void)requestBanner{
@@ -99,6 +106,9 @@
 
 #pragma mark - TableView
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        return  CGSizeMake(kScreenWidth/2.0, 60);
+    }
     return CGSizeMake(kScreenWidth/2.0, kScreenWidth/2.0*1.5);
 }
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
@@ -106,25 +116,25 @@
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     HomeCollectionViewCell *cell = (HomeCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"HomeCollectionViewCell" forIndexPath:indexPath];
-    PhoneImageModel *phoneImage = self.dataArray[indexPath.row];
-    [cell.iconImage sd_setImageWithURL:[NSURL URLWithString:phoneImage.img] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        cell.iconImage.image = image;
-    }];
+    if (indexPath.section == 0) {
+        
+        return cell;
+    }else{
+        PhoneImageModel *phoneImage = self.dataArray[indexPath.row];
+        [cell.iconImage sd_setImageWithURL:[NSURL URLWithString:phoneImage.img] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            cell.iconImage.image = image;
+        }];
+    }
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:true];
-    [BaseNetApi requestDouBanSuccessBlock:^(NSArray *array) {
-        NSLog(@"%@",array);
-    } failure:^(NSError *error) {
-        
-    }];
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.dataArray.count;
+    return section == 0 ? 2 : self.dataArray.count;
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
+    return 2;
 }
 #pragma mark ColloectionHeader
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
