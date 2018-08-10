@@ -12,17 +12,20 @@
 #import "Image360Model.h"
 #import "ImageCategory.h"
 #import "SearchImageModel.h"
+#import "NuoMiMovie.h"
+
 static NSInteger kCategoryStep = 20;
 
 @implementation BaseNetApi
 
 
-+ (void)requestWithUrl:(NSString *)url method:(NSString *)method params:(NSDictionary *)params successBlock:(NetSuccessBlock)success failure:(NetFailureBlock)failure{
++ (void)requestWithUrl:(NSString *)url method:(NSString *)method params:(NSDictionary *)params httpHeader:(NSDictionary *)headers successBlock:(NetSuccessBlock)success failure:(NetFailureBlock)failure{
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
     NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:method URLString:url parameters:params error:nil];
-
+    for (NSString *key in headers) {
+        [request setValue:headers[key] forHTTPHeaderField:key];
+    }
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
             failure(error);
@@ -36,7 +39,7 @@ static NSInteger kCategoryStep = 20;
 //首页
 + (void)requestHome:(NSInteger)skip SuccessBlock:(HomeNetBlock)success failure:(NetFailureBlock)failure{
     NSString *url = [NSString stringWithFormat:@"http://service.picasso.adesk.com/v1/vertical/vertical?limit=40&skip=%lu&adult=false&first=0&order=hot",skip];
-    [BaseNetApi requestWithUrl:url method:@"GET" params:nil successBlock:^(id responseObject) {
+    [BaseNetApi requestWithUrl:url method:@"GET" params:nil httpHeader:nil successBlock:^(id responseObject) {
         if ([responseObject[@"msg"] isEqualToString:@"success"]) {
             NSArray *jsonArray = responseObject[@"res"][@"vertical"];
             NSArray *imageArray = [PhoneImageModel mj_objectArrayWithKeyValuesArray:jsonArray];
@@ -53,6 +56,7 @@ static NSInteger kCategoryStep = 20;
     [BaseNetApi requestWithUrl:@"http://wallpaper.apc.360.cn/index.php?c=WallPaperAndroid&a=getAppsByCategory&cid=1&start=0&count=5"
                         method:@"GET"
                         params:nil
+                    httpHeader:nil
     successBlock:^(id responseObject) {
         if ([responseObject[@"errno"] integerValue] == 0) {
             NSArray *jsonArray = responseObject[@"data"];
@@ -68,7 +72,7 @@ static NSInteger kCategoryStep = 20;
 //分类列表
 
 +(void) requestCategorySuccessBlock:(HomeNetBlock)success failure:(NetFailureBlock)failure{
-    [BaseNetApi requestWithUrl:@"http://service.picasso.adesk.com/v1/vertical/category?adult=false&first=1" method:@"GET" params:nil successBlock:^(id responseObject) {
+    [BaseNetApi requestWithUrl:@"http://service.picasso.adesk.com/v1/vertical/category?adult=false&first=1" method:@"GET" params:nil httpHeader:nil successBlock:^(id responseObject) {
         if ([responseObject[@"msg"] isEqualToString:@"success"]) {
             NSArray *jsonArray = responseObject[@"res"][@"category"];
             NSArray *imageArray = [ImageCategory mj_objectArrayWithKeyValuesArray:jsonArray];
@@ -85,7 +89,7 @@ static NSInteger kCategoryStep = 20;
 //分类详情
 + (void)requestCategoryDetail:(NSString *)categoryId skip:(NSInteger) skip successBlock:(HomeNetBlock)success failure:(NetFailureBlock)failure{
     NSString *urlStr = [NSString stringWithFormat:@"http://service.picasso.adesk.com/v1/vertical/category/%@/vertical?limit=%lu&adult=false&first=1&skip=%lu&order=new",categoryId, kCategoryStep, skip];
-    [BaseNetApi requestWithUrl:urlStr method:@"GET" params:nil successBlock:^(id responseObject) {
+    [BaseNetApi requestWithUrl:urlStr method:@"GET" params:nil httpHeader:nil successBlock:^(id responseObject) {
         if ([responseObject[@"msg"] isEqualToString:@"success"]) {
             NSArray *jsonArray = responseObject[@"res"][@"vertical"];
             NSArray *imageArray = [PhoneImageModel mj_objectArrayWithKeyValuesArray:jsonArray];
@@ -100,7 +104,7 @@ static NSInteger kCategoryStep = 20;
 //搜索
 +(void) searchImages:(NSString *)keyword skip:(NSInteger)skip successBlock:(HomeNetBlock)success failure:(NetFailureBlock)failure{
     NSString *urlStr = [NSString stringWithFormat:@"http://wallpaper.apc.360.cn/index.php?c=WallPaper&a=search&count=6&kw=%@&start=%lu",keyword,skip];
-    [BaseNetApi requestWithUrl:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] method:@"GET" params:nil successBlock:^(id responseObject) {
+    [BaseNetApi requestWithUrl:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] method:@"GET" params:nil httpHeader:nil successBlock:^(id responseObject) {
         if ([responseObject[@"errmsg"] isEqualToString:@"success"]) {
             NSArray *jsonArray = responseObject[@"data"];
             NSArray *imageArray = [SearchImageModel mj_objectArrayWithKeyValuesArray:jsonArray];
@@ -112,6 +116,29 @@ static NSInteger kCategoryStep = 20;
         failure(error);
     }];
 }
+
+
+#pragma mark - 票房
++(void) requestBoxOfficeSuccessBlock:(ArrayNetBlock)success failure:(NetFailureBlock)failure{
+    NSString *url = @"http://dianying.nuomi.com/movie/boxrefresh";
+    NSDictionary *headers = @{@"User-Agent":@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36",
+                              @"Origin":@"http://dianying.nuomi.com",
+                              @"Referer":@"http://dianying.nuomi.com/movie/boxoffice"};
+    
+    [BaseNetApi requestWithUrl:url method:@"POST" params:nil  httpHeader:headers successBlock:^(id responseObject) {
+        if ([responseObject[@"real"][@"errorMsg"] isEqualToString:@"Success"]) {
+            NSArray *jsonArray = responseObject[@"real"][@"data"][@"detail"];
+            NSArray *nuoMiMovieList = [NuoMiMovie mj_objectArrayWithKeyValuesArray:jsonArray];
+            success(nuoMiMovieList);
+        }else {
+            failure([NSError errorWithDomain:@"数组为空" code:0 userInfo:nil]);
+        }
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+
 
 
 

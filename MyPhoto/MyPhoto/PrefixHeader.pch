@@ -10,6 +10,8 @@
 #define PrefixHeader_pch
 
 
+#import "UIViewController+Route.h"
+
 //1. 打印日志
 #ifdef DEBUG
 #    define DLog(...) NSLog(__VA_ARGS__)

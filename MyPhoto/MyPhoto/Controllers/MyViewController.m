@@ -7,6 +7,7 @@
 //
 
 #import "MyViewController.h"
+#import "BoxOfficeTableViewController.h"
 
 @interface MyViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -19,28 +20,41 @@
     [super viewDidLoad];
     self.title = @"我的";
     self.tableView.tableFooterView = [UIView new];
-    dataArray = @[@"我的收藏",@"意见反馈",@"清理缓存"];
+    dataArray = @[@[@"电影票房"],@[@"我的收藏",@"意见反馈",@"清理缓存"]];
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return dataArray.count;
 }
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return dataArray.count;
+    return [dataArray[section] count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyTableViewCell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyTableViewCell"];
     }
-    cell.textLabel.text = dataArray[indexPath.row];
+    cell.textLabel.text = dataArray[indexPath.section][indexPath.row];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:true];
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            [self pushToViewController:@"BoxOfficeTableViewController" storyboardName:@"Main" params:nil];
+        }
+    }
 }
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50;
+}
+-(CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 10;
+}
+-(UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
 }
 
 @end

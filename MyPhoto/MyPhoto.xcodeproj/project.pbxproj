@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C1EF8D5211D3ED80094B016 /* BoxOfficeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1EF8D4211D3ED80094B016 /* BoxOfficeTableViewController.m */; };
+		6C1EF8DF211D80B20094B016 /* UIViewController+Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1EF8DE211D80B20094B016 /* UIViewController+Route.m */; };
+		6C1EF8E2211D852E0094B016 /* NuoMiMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1EF8E1211D852E0094B016 /* NuoMiMovie.m */; };
+		6C1EF8E5211D89320094B016 /* BoxOfficeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1EF8E4211D89320094B016 /* BoxOfficeTableViewCell.m */; };
 		6C211060211930D00082DDD4 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C21105F211930D00082DDD4 /* MyViewController.m */; };
 		6C211071211947390082DDD4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C211070211947390082DDD4 /* SearchViewController.m */; };
 		6C211074211952200082DDD4 /* SearchImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C211073211952200082DDD4 /* SearchImageModel.m */; };
@@ -35,6 +39,14 @@
 
 /* Begin PBXFileReference section */
 		38BCF533DB48B097CD36823D /* Pods_MyPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C1EF8D3211D3ED80094B016 /* BoxOfficeTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxOfficeTableViewController.h; sourceTree = "<group>"; };
+		6C1EF8D4211D3ED80094B016 /* BoxOfficeTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoxOfficeTableViewController.m; sourceTree = "<group>"; };
+		6C1EF8DD211D80B20094B016 /* UIViewController+Route.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Route.h"; sourceTree = "<group>"; };
+		6C1EF8DE211D80B20094B016 /* UIViewController+Route.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Route.m"; sourceTree = "<group>"; };
+		6C1EF8E0211D852E0094B016 /* NuoMiMovie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NuoMiMovie.h; sourceTree = "<group>"; };
+		6C1EF8E1211D852E0094B016 /* NuoMiMovie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NuoMiMovie.m; sourceTree = "<group>"; };
+		6C1EF8E3211D89320094B016 /* BoxOfficeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxOfficeTableViewCell.h; sourceTree = "<group>"; };
+		6C1EF8E4211D89320094B016 /* BoxOfficeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoxOfficeTableViewCell.m; sourceTree = "<group>"; };
 		6C21105E211930D00082DDD4 /* MyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		6C21105F211930D00082DDD4 /* MyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		6C21106F211947390082DDD4 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
@@ -94,6 +106,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C1EF8D6211D72620094B016 /* Toos */ = {
+			isa = PBXGroup;
+			children = (
+				6C1EF8D9211D73DF0094B016 /* Category */,
+			);
+			path = Toos;
+			sourceTree = "<group>";
+		};
+		6C1EF8D9211D73DF0094B016 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				6C1EF8DD211D80B20094B016 /* UIViewController+Route.h */,
+				6C1EF8DE211D80B20094B016 /* UIViewController+Route.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		6C21107521197A910082DDD4 /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +144,8 @@
 				6CCCF5FD21183DFE00ED72D5 /* ImageCategory.m */,
 				6C211072211952200082DDD4 /* SearchImageModel.h */,
 				6C211073211952200082DDD4 /* SearchImageModel.m */,
+				6C1EF8E0211D852E0094B016 /* NuoMiMovie.h */,
+				6C1EF8E1211D852E0094B016 /* NuoMiMovie.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -135,6 +166,8 @@
 				6CCCF5F72118258F00ED72D5 /* TopBannerCollectionViewCell.m */,
 				6CCCF68221185F1C00ED72D5 /* CategoryTableViewCell.h */,
 				6CCCF68321185F1C00ED72D5 /* CategoryTableViewCell.m */,
+				6C1EF8E3211D89320094B016 /* BoxOfficeTableViewCell.h */,
+				6C1EF8E4211D89320094B016 /* BoxOfficeTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -152,6 +185,8 @@
 				6C21105F211930D00082DDD4 /* MyViewController.m */,
 				6C21106F211947390082DDD4 /* SearchViewController.h */,
 				6C211070211947390082DDD4 /* SearchViewController.m */,
+				6C1EF8D3211D3ED80094B016 /* BoxOfficeTableViewController.h */,
+				6C1EF8D4211D3ED80094B016 /* BoxOfficeTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -177,6 +212,7 @@
 		6CB2ECA1211464C7000370EF /* MyPhoto */ = {
 			isa = PBXGroup;
 			children = (
+				6C1EF8D6211D72620094B016 /* Toos */,
 				6C21107521197A910082DDD4 /* NetWork */,
 				6C2D233C2117F9A90018438B /* Controllers */,
 				6C2D233A2117F9A90018438B /* Models */,
@@ -338,6 +374,8 @@
 				6C2D234D2117F9FC0018438B /* ViewController.m in Sources */,
 				6CB2ECB2211464C9000370EF /* main.m in Sources */,
 				6CCCF68421185F1C00ED72D5 /* CategoryTableViewCell.m in Sources */,
+				6C1EF8E2211D852E0094B016 /* NuoMiMovie.m in Sources */,
+				6C1EF8E5211D89320094B016 /* BoxOfficeTableViewCell.m in Sources */,
 				6C211074211952200082DDD4 /* SearchImageModel.m in Sources */,
 				6CCCF5FB211838EC00ED72D5 /* CategoryViewController.m in Sources */,
 				6C2D23512117FBC80018438B /* HomeCollectionReusableView.m in Sources */,
@@ -351,7 +389,9 @@
 				6C2D23422117F9E80018438B /* HomeCollectionViewCell.m in Sources */,
 				6C2D234A2117F9F20018438B /* PhoneImageModel.m in Sources */,
 				6C2D23492117F9F20018438B /* Image360Model.m in Sources */,
+				6C1EF8D5211D3ED80094B016 /* BoxOfficeTableViewController.m in Sources */,
 				6CCCF5FE21183DFE00ED72D5 /* ImageCategory.m in Sources */,
+				6C1EF8DF211D80B20094B016 /* UIViewController+Route.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
