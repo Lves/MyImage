@@ -20,7 +20,7 @@
     [super viewDidLoad];
     self.title = @"我的";
     self.tableView.tableFooterView = [UIView new];
-    dataArray = @[@[@"电影票房"],@[@"我的收藏",@"意见反馈",@"清理缓存"]];
+    dataArray = @[@[@"我的收藏",@"意见反馈",@"清理缓存"], @[@"电影票房"]];
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
@@ -39,7 +39,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-    if (indexPath.section == 0) {
+    if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             [self pushToViewController:@"BoxOfficeTableViewController" storyboardName:@"Main" params:nil];
         }

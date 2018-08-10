@@ -20,4 +20,5 @@ typedef void(^ArrayNetBlock)(NSArray *array);
 +(void) searchImages:(NSString *)keyword skip:(NSInteger)skip successBlock:(HomeNetBlock)success failure:(NetFailureBlock)failure;
 ///票房
 +(void) requestBoxOfficeSuccessBlock:(ArrayNetBlock)success failure:(NetFailureBlock)failure;
++(void) requestDouBanSuccessBlock:(ArrayNetBlock)success failure:(NetFailureBlock)failure;
 @end

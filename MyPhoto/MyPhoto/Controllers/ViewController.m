@@ -112,6 +112,14 @@
     }];
     return cell;
 }
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [collectionView deselectItemAtIndexPath:indexPath animated:true];
+    [BaseNetApi requestDouBanSuccessBlock:^(NSArray *array) {
+        NSLog(@"%@",array);
+    } failure:^(NSError *error) {
+        
+    }];
+}
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.dataArray.count;
 }

@@ -13,7 +13,6 @@
 #import "ImageCategory.h"
 #import "SearchImageModel.h"
 #import "NuoMiMovie.h"
-
 static NSInteger kCategoryStep = 20;
 
 @implementation BaseNetApi
@@ -138,7 +137,20 @@ static NSInteger kCategoryStep = 20;
     }];
 }
 
-
++(void) requestDouBanSuccessBlock:(ArrayNetBlock)success failure:(NetFailureBlock)failure{
+    NSString *url = @"https://api.douban.com/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&city=北京&start=0&count=100&client=&udid=";
+    [BaseNetApi requestWithUrl:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] method:@"GET" params:nil  httpHeader:nil successBlock:^(id responseObject) {
+        if ([responseObject[@"count"] integerValue] > 0) {
+            NSArray *jsonArray = responseObject[@"subjects"];
+            NSArray *doubanMovieList = [DoubanMovie mj_objectArrayWithKeyValuesArray:jsonArray];
+            success(doubanMovieList);
+        }else {
+            failure([NSError errorWithDomain:@"数组为空" code:0 userInfo:nil]);
+        }
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
 
 
 

@@ -14,5 +14,15 @@
 //}
 @end
 
-//@implementation MovieAttribute
-//@end
+@implementation DoubanMovie
++(NSDictionary *)mj_replacedKeyFromPropertyName{
+    return @{@"idStr":@"id"};
+}
++ (NSDictionary *)mj_objectClassInArray{
+    return @{@"images": @"DBImage"};
+}
+@end
+@implementation DBImage
+@end
+@implementation DBRating
+@end
