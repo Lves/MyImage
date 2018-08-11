@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -30,7 +29,6 @@
                 <constraint firstAttribute="bottom" secondItem="BgP-HH-Sxm" secondAttribute="bottom" constant="5" id="dt6-GO-LgW"/>
                 <constraint firstAttribute="trailing" secondItem="BgP-HH-Sxm" secondAttribute="trailing" constant="5" id="pSx-iS-liq"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="150" height="226"/>
             <connections>
                 <outlet property="iconImage" destination="BgP-HH-Sxm" id="JTq-mh-zQo"/>

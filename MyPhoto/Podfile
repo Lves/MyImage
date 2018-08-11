@@ -14,7 +14,7 @@ def pods
 	pod 'SDWebImage', '~> 4.0'
 	pod 'AFNetworking', '~> 3.0'
     pod 'FSPagerView'
-
+    pod 'MBProgressHUD', '~> 1.1.0'
 end
 
 target 'MyPhoto' do
