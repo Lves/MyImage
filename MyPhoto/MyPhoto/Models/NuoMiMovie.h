@@ -40,3 +40,21 @@
 @property(nonatomic,copy) NSString *average;
 @property(nonatomic,copy) NSString *min;
 @end
+///豆瓣详情
+@interface DBMovieDetail: NSObject
+@property (nonatomic,strong) NSArray *trailers;
+@end
+
+@interface DBTrailer: NSObject
+@property(nonatomic,copy) NSString *medium;
+@property(nonatomic,copy) NSString *title;
+@property(nonatomic,copy) NSString *subject_id;
+@property(nonatomic,copy) NSString *alt;
+@property(nonatomic,copy) NSString *small;
+@property(nonatomic,copy) NSString *resource_url;
+@property(nonatomic,copy) NSString *idStr;
+@end
+
+
+
+

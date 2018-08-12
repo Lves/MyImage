@@ -67,7 +67,7 @@
     }];
 }
 
-#pragma mark - TableView
+#pragma mark - collectionView
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     return CGSizeMake(kScreenWidth/2.0, kScreenWidth/2.0*1.5);
 }

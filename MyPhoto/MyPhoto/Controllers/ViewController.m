@@ -12,15 +12,18 @@
 #import "Image360Model.h"
 #import "PhoneImageModel.h"
 #import "HomeCollectionViewCell.h"
+#import "HomeFunctionCollectionViewCell.h"
 #import <MJRefresh/MJRefresh.h>
 #import "HomeCollectionReusableView.h"
 #import "SearchViewController.h"
 #import "BaseNetApi.h"
+#import "FunctionModel.h"
 @interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,strong) NSMutableArray *dataArray;
 @property (nonatomic,strong) NSArray *topBannerArray;
+@property (nonatomic, strong) NSArray *functionArray;
 @end
 
 @implementation ViewController
@@ -28,6 +31,10 @@
     [super viewDidLoad];
     self.title = @"首页";
     [self naviBar];
+    self.functionArray = @[[FunctionModel instanceWithTitle:@"最新" imageName:@"function_new_images" address:@""],
+                           [FunctionModel instanceWithTitle:@"豆瓣评分" imageName:@"function_douban" address:@"DouBanViewController"],
+                           [FunctionModel instanceWithTitle:@"票房排行榜" imageName:@"function_ranking_list" address:@"BoxOfficeTableViewController"],
+                           [FunctionModel instanceWithTitle:@"其他" imageName:@"function_others" address:@""]];
     //banner
     [self requestBanner];
     
@@ -36,6 +43,7 @@
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"HomeCollectionViewCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"HomeFunctionCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"HomeFunctionCollectionViewCell"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeCollectionReusableView"];
     
     __weak typeof(self) weakSelf = self;
@@ -57,16 +65,6 @@
     controller.hidesBottomBarWhenPushed = true;
     [self.navigationController pushViewController:controller animated:true];
 }
-
-- (void)requestDouban{
-    [BaseNetApi requestDouBanSuccessBlock:^(NSArray *array) {
-        NSLog(@"%@",array);
-    } failure:^(NSError *error) {
-        
-    }];
-}
-
-
 -(void)requestBanner{
     __weak typeof(self) weakSelf = self;
     [BaseNetApi requestBannerSuccessBlock:^(NSArray *images) {
@@ -107,7 +105,7 @@
 #pragma mark - TableView
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        return  CGSizeMake(kScreenWidth/2.0, 60);
+        return  CGSizeMake(kScreenWidth/4.0, 90);
     }
     return CGSizeMake(kScreenWidth/2.0, kScreenWidth/2.0*1.5);
 }
@@ -115,23 +113,33 @@
     return UIEdgeInsetsZero;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    HomeCollectionViewCell *cell = (HomeCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"HomeCollectionViewCell" forIndexPath:indexPath];
     if (indexPath.section == 0) {
-        
+        HomeFunctionCollectionViewCell *cell = (HomeFunctionCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"HomeFunctionCollectionViewCell" forIndexPath:indexPath];
+        FunctionModel *model = self.functionArray[indexPath.row];
+        cell.lblTitle.text = model.title;
+        cell.icon.image = [UIImage imageNamed:model.imageName];
         return cell;
     }else{
+        HomeCollectionViewCell *cell = (HomeCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"HomeCollectionViewCell" forIndexPath:indexPath];
         PhoneImageModel *phoneImage = self.dataArray[indexPath.row];
         [cell.iconImage sd_setImageWithURL:[NSURL URLWithString:phoneImage.img] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             cell.iconImage.image = image;
         }];
+         return cell;
     }
-    return cell;
+   
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:true];
+    if (indexPath.section == 0) {
+        FunctionModel *model = self.functionArray[indexPath.row];
+        if (model.address.length > 0) {
+            [self pushToViewController:model.address storyboardName:@"Main" params:nil];
+        }
+    }
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return section == 0 ? 2 : self.dataArray.count;
+    return section == 0 ? 4 : self.dataArray.count;
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 2;

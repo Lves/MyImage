@@ -21,4 +21,5 @@ typedef void(^ArrayNetBlock)(NSArray *array);
 ///票房
 +(void) requestBoxOfficeSuccessBlock:(ArrayNetBlock)success failure:(NetFailureBlock)failure;
 +(void) requestDouBanSuccessBlock:(ArrayNetBlock)success failure:(NetFailureBlock)failure;
++(void) requestDBMovie:(NSString *)idStr successBlock:(NetSuccessBlock)success failure:(NetFailureBlock)failure;
 @end

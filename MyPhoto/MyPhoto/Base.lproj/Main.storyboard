@@ -490,19 +490,115 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4by-uI-ZA5">
+                            <rect key="frame" x="0.0" y="59.5" width="375" height="0.5"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="FuH-N1-xuX"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="1au-iw-E0d" firstAttribute="leading" secondItem="7gu-TR-mv0" secondAttribute="leading" constant="120" id="7Ar-ZT-YM1"/>
+                        <constraint firstAttribute="trailing" secondItem="4by-uI-ZA5" secondAttribute="trailing" id="KFz-xt-p6k"/>
                         <constraint firstItem="3Cp-Hh-Per" firstAttribute="leading" secondItem="7gu-TR-mv0" secondAttribute="leading" constant="12" id="NAD-bi-tVw"/>
                         <constraint firstAttribute="trailing" secondItem="1au-iw-E0d" secondAttribute="trailing" id="WDz-4K-erG"/>
+                        <constraint firstAttribute="bottom" secondItem="4by-uI-ZA5" secondAttribute="bottom" id="Yor-Av-Duh"/>
                         <constraint firstItem="1au-iw-E0d" firstAttribute="top" secondItem="7gu-TR-mv0" secondAttribute="top" id="hpg-lH-Y7k"/>
                         <constraint firstItem="3Cp-Hh-Per" firstAttribute="centerY" secondItem="7gu-TR-mv0" secondAttribute="centerY" id="vaC-ba-Z8n"/>
                         <constraint firstAttribute="bottom" secondItem="1au-iw-E0d" secondAttribute="bottom" id="wUI-5c-ckD"/>
+                        <constraint firstItem="4by-uI-ZA5" firstAttribute="leading" secondItem="7gu-TR-mv0" secondAttribute="leading" id="yWv-nN-aS6"/>
                     </constraints>
                 </view>
             </objects>
             <point key="canvasLocation" x="159.19999999999999" y="2794.4527736131936"/>
+        </scene>
+        <!--Dou Ban View Controller-->
+        <scene sceneID="DPa-gY-tgh">
+            <objects>
+                <collectionViewController storyboardIdentifier="DouBanViewController" id="bMD-n5-kRF" customClass="DouBanViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Ppe-tb-Qmd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xDu-3X-YCc">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="bMD-n5-kRF" id="wOD-4A-RAa"/>
+                            <outlet property="delegate" destination="bMD-n5-kRF" id="Pzl-ik-lbd"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TO9-bq-Lea" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="823" y="2794"/>
+        </scene>
+        <!--Dou Ban Detail View Controller-->
+        <scene sceneID="VfF-fm-tvD">
+            <objects>
+                <collectionViewController storyboardIdentifier="DouBanDetailViewController" id="YEq-YF-DFx" customClass="DouBanDetailViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="hXA-2V-IJ8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5eH-Jh-twN">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="YEq-YF-DFx" id="HS5-15-zDp"/>
+                            <outlet property="delegate" destination="YEq-YF-DFx" id="SAt-ER-1jb"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GmE-MI-LsQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1447" y="2798"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="QHR-EW-H3d">
+            <objects>
+                <viewController storyboardIdentifier="WebViewController" id="649-o4-wvg" customClass="WebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JfN-Da-6bl"/>
+                        <viewControllerLayoutGuide type="bottom" id="0v4-sM-9RQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e5M-TE-ceq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jjd-3x-HnD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="649-o4-wvg" id="mDd-Qa-MLH"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0v4-sM-9RQ" firstAttribute="top" secondItem="Jjd-3x-HnD" secondAttribute="bottom" id="NuD-Y0-WLe"/>
+                            <constraint firstAttribute="trailing" secondItem="Jjd-3x-HnD" secondAttribute="trailing" id="drE-N0-Ufx"/>
+                            <constraint firstItem="Jjd-3x-HnD" firstAttribute="leading" secondItem="e5M-TE-ceq" secondAttribute="leading" id="qUZ-W3-41d"/>
+                            <constraint firstItem="Jjd-3x-HnD" firstAttribute="top" secondItem="e5M-TE-ceq" secondAttribute="top" id="vWK-mO-iz4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="Jjd-3x-HnD" id="kmx-zB-43q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1TV-wP-ift" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="279" y="3508"/>
         </scene>
     </scenes>
     <resources>

@@ -26,3 +26,14 @@
 @end
 @implementation DBRating
 @end
+@implementation DBMovieDetail;
++ (NSDictionary *)mj_objectClassInArray{
+    return @{@"trailers": @"DBTrailer"};
+}
+@end
+
+@implementation DBTrailer
++(NSDictionary *)mj_replacedKeyFromPropertyName{
+    return @{@"idStr":@"id"};
+}
+@end

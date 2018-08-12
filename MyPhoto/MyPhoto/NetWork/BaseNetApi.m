@@ -136,7 +136,7 @@ static NSInteger kCategoryStep = 20;
         failure(error);
     }];
 }
-
+//豆瓣评分
 +(void) requestDouBanSuccessBlock:(ArrayNetBlock)success failure:(NetFailureBlock)failure{
     NSString *url = @"https://api.douban.com/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&city=北京&start=0&count=100&client=&udid=";
     [BaseNetApi requestWithUrl:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] method:@"GET" params:nil  httpHeader:nil successBlock:^(id responseObject) {
@@ -151,7 +151,22 @@ static NSInteger kCategoryStep = 20;
         failure(error);
     }];
 }
-
+//电影详情
++(void) requestDBMovie:(NSString *)idStr successBlock:(NetSuccessBlock)success failure:(NetFailureBlock)failure{
+    NSString *url = [NSString stringWithFormat:@"http://api.douban.com/v2/movie/subject/%@?apikey=0b2bdeda43b5688921839c8ecb20399b&city=北京&client=&udid=",idStr];
+    [BaseNetApi requestWithUrl:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] method:@"GET" params:nil  httpHeader:nil successBlock:^(id responseObject) {
+        if (responseObject != nil) {
+            DBMovieDetail *movie = [DBMovieDetail mj_objectWithKeyValues:responseObject];
+            success(movie);
+        }else {
+            failure([NSError errorWithDomain:@"详情为空" code:0 userInfo:nil]);
+        }
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+    
+    
+}
 
 
 @end

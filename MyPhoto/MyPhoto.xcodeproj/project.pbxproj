@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B232ABE211ECDFC000E7AD3 /* HomeFunctionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B232ABC211ECDFC000E7AD3 /* HomeFunctionCollectionViewCell.m */; };
+		1B232ABF211ECDFC000E7AD3 /* HomeFunctionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B232ABD211ECDFC000E7AD3 /* HomeFunctionCollectionViewCell.xib */; };
+		1B232AC2211ED10E000E7AD3 /* FunctionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B232AC1211ED10E000E7AD3 /* FunctionModel.m */; };
+		1B232AC5211FC1EF000E7AD3 /* DouBanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B232AC4211FC1EF000E7AD3 /* DouBanViewController.m */; };
+		1B232AC9211FC34A000E7AD3 /* DBCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B232AC7211FC34A000E7AD3 /* DBCollectionViewCell.m */; };
+		1B232ACA211FC34A000E7AD3 /* DBCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B232AC8211FC34A000E7AD3 /* DBCollectionViewCell.xib */; };
+		1B232ACD211FCEB8000E7AD3 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B232ACC211FCEB8000E7AD3 /* WebViewController.m */; };
+		1B232AD0211FD343000E7AD3 /* DouBanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B232ACF211FD343000E7AD3 /* DouBanDetailViewController.m */; };
+		1B232AD4211FD56C000E7AD3 /* DBTrailerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B232AD2211FD56C000E7AD3 /* DBTrailerCollectionViewCell.m */; };
+		1B232AD5211FD56C000E7AD3 /* DBTrailerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B232AD3211FD56C000E7AD3 /* DBTrailerCollectionViewCell.xib */; };
 		6C1EF8D5211D3ED80094B016 /* BoxOfficeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1EF8D4211D3ED80094B016 /* BoxOfficeTableViewController.m */; };
 		6C1EF8DF211D80B20094B016 /* UIViewController+Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1EF8DE211D80B20094B016 /* UIViewController+Route.m */; };
 		6C1EF8E2211D852E0094B016 /* NuoMiMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1EF8E1211D852E0094B016 /* NuoMiMovie.m */; };
@@ -38,6 +48,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B232ABB211ECDFC000E7AD3 /* HomeFunctionCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeFunctionCollectionViewCell.h; sourceTree = "<group>"; };
+		1B232ABC211ECDFC000E7AD3 /* HomeFunctionCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeFunctionCollectionViewCell.m; sourceTree = "<group>"; };
+		1B232ABD211ECDFC000E7AD3 /* HomeFunctionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeFunctionCollectionViewCell.xib; sourceTree = "<group>"; };
+		1B232AC0211ED10E000E7AD3 /* FunctionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FunctionModel.h; sourceTree = "<group>"; };
+		1B232AC1211ED10E000E7AD3 /* FunctionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FunctionModel.m; sourceTree = "<group>"; };
+		1B232AC3211FC1EF000E7AD3 /* DouBanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DouBanViewController.h; sourceTree = "<group>"; };
+		1B232AC4211FC1EF000E7AD3 /* DouBanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DouBanViewController.m; sourceTree = "<group>"; };
+		1B232AC6211FC34A000E7AD3 /* DBCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCollectionViewCell.h; sourceTree = "<group>"; };
+		1B232AC7211FC34A000E7AD3 /* DBCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBCollectionViewCell.m; sourceTree = "<group>"; };
+		1B232AC8211FC34A000E7AD3 /* DBCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBCollectionViewCell.xib; sourceTree = "<group>"; };
+		1B232ACB211FCEB8000E7AD3 /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		1B232ACC211FCEB8000E7AD3 /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		1B232ACE211FD343000E7AD3 /* DouBanDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DouBanDetailViewController.h; sourceTree = "<group>"; };
+		1B232ACF211FD343000E7AD3 /* DouBanDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DouBanDetailViewController.m; sourceTree = "<group>"; };
+		1B232AD1211FD56C000E7AD3 /* DBTrailerCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBTrailerCollectionViewCell.h; sourceTree = "<group>"; };
+		1B232AD2211FD56C000E7AD3 /* DBTrailerCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBTrailerCollectionViewCell.m; sourceTree = "<group>"; };
+		1B232AD3211FD56C000E7AD3 /* DBTrailerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBTrailerCollectionViewCell.xib; sourceTree = "<group>"; };
 		38BCF533DB48B097CD36823D /* Pods_MyPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C1EF8D3211D3ED80094B016 /* BoxOfficeTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxOfficeTableViewController.h; sourceTree = "<group>"; };
 		6C1EF8D4211D3ED80094B016 /* BoxOfficeTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoxOfficeTableViewController.m; sourceTree = "<group>"; };
@@ -146,6 +173,8 @@
 				6C211073211952200082DDD4 /* SearchImageModel.m */,
 				6C1EF8E0211D852E0094B016 /* NuoMiMovie.h */,
 				6C1EF8E1211D852E0094B016 /* NuoMiMovie.m */,
+				1B232AC0211ED10E000E7AD3 /* FunctionModel.h */,
+				1B232AC1211ED10E000E7AD3 /* FunctionModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -168,6 +197,15 @@
 				6CCCF68321185F1C00ED72D5 /* CategoryTableViewCell.m */,
 				6C1EF8E3211D89320094B016 /* BoxOfficeTableViewCell.h */,
 				6C1EF8E4211D89320094B016 /* BoxOfficeTableViewCell.m */,
+				1B232ABB211ECDFC000E7AD3 /* HomeFunctionCollectionViewCell.h */,
+				1B232ABC211ECDFC000E7AD3 /* HomeFunctionCollectionViewCell.m */,
+				1B232ABD211ECDFC000E7AD3 /* HomeFunctionCollectionViewCell.xib */,
+				1B232AC6211FC34A000E7AD3 /* DBCollectionViewCell.h */,
+				1B232AC7211FC34A000E7AD3 /* DBCollectionViewCell.m */,
+				1B232AC8211FC34A000E7AD3 /* DBCollectionViewCell.xib */,
+				1B232AD1211FD56C000E7AD3 /* DBTrailerCollectionViewCell.h */,
+				1B232AD2211FD56C000E7AD3 /* DBTrailerCollectionViewCell.m */,
+				1B232AD3211FD56C000E7AD3 /* DBTrailerCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,6 +225,12 @@
 				6C211070211947390082DDD4 /* SearchViewController.m */,
 				6C1EF8D3211D3ED80094B016 /* BoxOfficeTableViewController.h */,
 				6C1EF8D4211D3ED80094B016 /* BoxOfficeTableViewController.m */,
+				1B232AC3211FC1EF000E7AD3 /* DouBanViewController.h */,
+				1B232AC4211FC1EF000E7AD3 /* DouBanViewController.m */,
+				1B232ACB211FCEB8000E7AD3 /* WebViewController.h */,
+				1B232ACC211FCEB8000E7AD3 /* WebViewController.m */,
+				1B232ACE211FD343000E7AD3 /* DouBanDetailViewController.h */,
+				1B232ACF211FD343000E7AD3 /* DouBanDetailViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -306,11 +350,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B232AD5211FD56C000E7AD3 /* DBTrailerCollectionViewCell.xib in Resources */,
 				6CB2ECAF211464C9000370EF /* LaunchScreen.storyboard in Resources */,
 				6CB2ECAC211464C9000370EF /* Assets.xcassets in Resources */,
+				1B232ACA211FC34A000E7AD3 /* DBCollectionViewCell.xib in Resources */,
 				6CB2ECAA211464C7000370EF /* Main.storyboard in Resources */,
 				6C2D23522117FBC80018438B /* HomeCollectionReusableView.xib in Resources */,
 				6C2D23442117F9E80018438B /* HomeCollectionViewCell.xib in Resources */,
+				1B232ABF211ECDFC000E7AD3 /* HomeFunctionCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,13 +419,18 @@
 			files = (
 				6CCCF5F82118258F00ED72D5 /* TopBannerCollectionViewCell.m in Sources */,
 				6C2D234D2117F9FC0018438B /* ViewController.m in Sources */,
+				1B232AD0211FD343000E7AD3 /* DouBanDetailViewController.m in Sources */,
+				1B232AC9211FC34A000E7AD3 /* DBCollectionViewCell.m in Sources */,
+				1B232ABE211ECDFC000E7AD3 /* HomeFunctionCollectionViewCell.m in Sources */,
 				6CB2ECB2211464C9000370EF /* main.m in Sources */,
 				6CCCF68421185F1C00ED72D5 /* CategoryTableViewCell.m in Sources */,
 				6C1EF8E2211D852E0094B016 /* NuoMiMovie.m in Sources */,
 				6C1EF8E5211D89320094B016 /* BoxOfficeTableViewCell.m in Sources */,
 				6C211074211952200082DDD4 /* SearchImageModel.m in Sources */,
 				6CCCF5FB211838EC00ED72D5 /* CategoryViewController.m in Sources */,
+				1B232AC2211ED10E000E7AD3 /* FunctionModel.m in Sources */,
 				6C2D23512117FBC80018438B /* HomeCollectionReusableView.m in Sources */,
+				1B232AD4211FD56C000E7AD3 /* DBTrailerCollectionViewCell.m in Sources */,
 				6C21107821197AB00082DDD4 /* BaseNetApi.m in Sources */,
 				6C211071211947390082DDD4 /* SearchViewController.m in Sources */,
 				6C2D23432117F9E80018438B /* ImageTableViewCell.m in Sources */,
@@ -386,8 +438,10 @@
 				6C2D2357211803C40018438B /* DDTest.swift in Sources */,
 				6C211060211930D00082DDD4 /* MyViewController.m in Sources */,
 				6CCCF68121185BEE00ED72D5 /* CategoryListViewController.m in Sources */,
+				1B232AC5211FC1EF000E7AD3 /* DouBanViewController.m in Sources */,
 				6C2D23422117F9E80018438B /* HomeCollectionViewCell.m in Sources */,
 				6C2D234A2117F9F20018438B /* PhoneImageModel.m in Sources */,
+				1B232ACD211FCEB8000E7AD3 /* WebViewController.m in Sources */,
 				6C2D23492117F9F20018438B /* Image360Model.m in Sources */,
 				6C1EF8D5211D3ED80094B016 /* BoxOfficeTableViewController.m in Sources */,
 				6CCCF5FE21183DFE00ED72D5 /* ImageCategory.m in Sources */,

@@ -30,7 +30,7 @@
     for (NSDictionary *dic in attrs) {//{attrName: "累计票房", attrValue: "30.60亿"}
         if ([dic[@"attrName"] isEqualToString:@"上映天数"]) {
             day = dic[@"attrValue"];
-        }else if ([dic[@"attrName"] isEqualToString:@"实时票房"]) {
+        }else if ([dic[@"attrName"] isEqualToString:@"累计票房"]) {
             totalBoxOffice = dic[@"attrValue"];
         }else if ([dic[@"attrName"] isEqualToString:@"票房占比"]) {
             self.lblPFPercent.text = [NSString stringWithFormat:@"%@%%",dic[@"attrValue"]];
