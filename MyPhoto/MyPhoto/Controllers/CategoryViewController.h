@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef NS_ENUM(NSInteger,ViewType) {
+    ViewTypeCategory,
+    ViewTypeHot,
+};
 
 @interface CategoryViewController : UIViewController
 @property (nonatomic,copy) NSString *categoryId;
 @property (nonatomic,copy) NSString *name;
+@property (nonatomic, assign) ViewType viewType;
 @end

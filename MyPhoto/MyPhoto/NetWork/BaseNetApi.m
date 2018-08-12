@@ -36,8 +36,8 @@ static NSInteger kCategoryStep = 20;
 }
 
 //首页
-+ (void)requestHome:(NSInteger)skip SuccessBlock:(HomeNetBlock)success failure:(NetFailureBlock)failure{
-    NSString *url = [NSString stringWithFormat:@"http://service.picasso.adesk.com/v1/vertical/vertical?limit=40&skip=%lu&adult=false&first=0&order=hot",skip];
++ (void)requestImages:(NSString *)order skip:(NSInteger)skip successBlock:(HomeNetBlock)success failure:(NetFailureBlock)failure{
+    NSString *url = [NSString stringWithFormat:@"http://service.picasso.adesk.com/v1/vertical/vertical?limit=40&skip=%lu&adult=false&first=0&order=%@", skip, order];
     [BaseNetApi requestWithUrl:url method:@"GET" params:nil httpHeader:nil successBlock:^(id responseObject) {
         if ([responseObject[@"msg"] isEqualToString:@"success"]) {
             NSArray *jsonArray = responseObject[@"res"][@"vertical"];

@@ -28,19 +28,30 @@
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"HomeCollectionViewCell"];
     
+    
     __weak typeof(self) weakSelf = self;
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [weakSelf requestPhoneImages];
+        if (weakSelf.viewType == ViewTypeCategory) {
+            [weakSelf requestCategoryPhoneImages];
+        }else if (weakSelf.viewType == ViewTypeHot){
+            [weakSelf requestPhoneImages];
+        }
+        
     }];
 
     self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        [weakSelf requestMore];
+        if (weakSelf.viewType == ViewTypeCategory) {
+            [weakSelf requestCategoryMore];
+        }else if (weakSelf.viewType == ViewTypeHot){
+            [weakSelf requestMorePhoneImages:weakSelf.dataArray.count];
+        }
     }];
     
     [self.collectionView.mj_header beginRefreshing];
     
 }
--(void)requestPhoneImages{
+//分类
+-(void)requestCategoryPhoneImages{
     __weak typeof(self) weakSelf = self;
     [BaseNetApi requestCategoryDetail:self.categoryId skip:0 successBlock:^(NSArray *images) {
         if (images.count > 0) {
@@ -52,7 +63,7 @@
         [weakSelf.collectionView.mj_header endRefreshing];
     }];
 }
-- (void)requestMore{
+- (void)requestCategoryMore{
     __weak typeof(self) weakSelf = self;
     [BaseNetApi requestCategoryDetail:self.categoryId skip:self.dataArray.count successBlock:^(NSArray *images) {
         if (images.count > 0) {
@@ -66,6 +77,34 @@
          [weakSelf.collectionView.mj_footer endRefreshing];
     }];
 }
+//最热
+-(void)requestPhoneImages{
+    __weak typeof(self) weakSelf = self;
+    [BaseNetApi requestImages:@"hot" skip:0 successBlock:^(NSArray *images) {
+        if (images.count > 0) {
+            weakSelf.dataArray = [images mutableCopy];
+        }
+        [weakSelf.collectionView reloadData];
+        [weakSelf.collectionView.mj_header endRefreshing];
+    } failure:^(NSError *error) {
+        [weakSelf.collectionView.mj_header endRefreshing];
+    }];
+}
+-(void)requestMorePhoneImages:(NSInteger)skip{
+    __weak typeof(self) weakSelf = self;
+    [BaseNetApi requestImages:@"hot" skip:skip successBlock:^(NSArray *images) {
+        if (images.count > 0) {
+            [weakSelf.dataArray addObjectsFromArray:images];
+            [weakSelf.collectionView reloadData];
+            [weakSelf.collectionView.mj_footer endRefreshing];
+        }else{
+            [weakSelf.collectionView.mj_footer endRefreshingWithNoMoreData];
+        }
+    } failure:^(NSError *error) {
+        [weakSelf.collectionView.mj_footer endRefreshing];
+    }];
+}
+
 
 #pragma mark - collectionView
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{

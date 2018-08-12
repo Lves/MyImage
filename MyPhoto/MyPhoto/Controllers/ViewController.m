@@ -16,6 +16,7 @@
 #import <MJRefresh/MJRefresh.h>
 #import "HomeCollectionReusableView.h"
 #import "SearchViewController.h"
+#import "CategoryViewController.h"
 #import "BaseNetApi.h"
 #import "FunctionModel.h"
 @interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
@@ -31,7 +32,7 @@
     [super viewDidLoad];
     self.title = @"首页";
     [self naviBar];
-    self.functionArray = @[[FunctionModel instanceWithTitle:@"最新" imageName:@"function_new_images" address:@""],
+    self.functionArray = @[[FunctionModel instanceWithTitle:@"最新" imageName:@"function_new_images" address:@"CategoryViewController"],
                            [FunctionModel instanceWithTitle:@"豆瓣评分" imageName:@"function_douban" address:@"DouBanViewController"],
                            [FunctionModel instanceWithTitle:@"票房排行榜" imageName:@"function_ranking_list" address:@"BoxOfficeTableViewController"],
                            [FunctionModel instanceWithTitle:@"其他" imageName:@"function_others" address:@""]];
@@ -77,7 +78,7 @@
 
 -(void)requestPhoneImages{
     __weak typeof(self) weakSelf = self;
-    [BaseNetApi requestHome:0 SuccessBlock:^(NSArray *images) {
+    [BaseNetApi requestImages:@"favs" skip:0 successBlock:^(NSArray *images) {
         if (images.count > 0) {
             weakSelf.dataArray = [images mutableCopy];
         }
@@ -89,7 +90,7 @@
 }
 -(void)requestMorePhoneImages:(NSInteger)skip{
     __weak typeof(self) weakSelf = self;
-    [BaseNetApi requestHome:skip SuccessBlock:^(NSArray *images) {
+    [BaseNetApi requestImages:@"favs" skip:skip successBlock:^(NSArray *images) {
         if (images.count > 0) {
             [weakSelf.dataArray addObjectsFromArray:images];
             [weakSelf.collectionView reloadData];
@@ -134,6 +135,12 @@
     if (indexPath.section == 0) {
         FunctionModel *model = self.functionArray[indexPath.row];
         if (model.address.length > 0) {
+            if ([model.address isEqualToString:@"CategoryViewController"]) {
+                CategoryViewController *catController = (CategoryViewController *)[UIViewController instanceViewController:@"CategoryViewController" storyboardName:@"Main" params:@{@"name":@"最新"}];
+                catController.viewType = ViewTypeHot;
+                [self.navigationController pushViewController:catController animated:true];
+                return;
+            }
             [self pushToViewController:model.address storyboardName:@"Main" params:nil];
         }
     }

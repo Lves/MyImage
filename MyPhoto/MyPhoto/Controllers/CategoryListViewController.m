@@ -59,14 +59,10 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-    
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    CategoryViewController *controller = [sb instantiateViewControllerWithIdentifier:@"CategoryViewController"];
-    controller.hidesBottomBarWhenPushed = true;
     ImageCategory *cat = dataArray[indexPath.row];
-    controller.categoryId = cat.idStr;
-    controller.name = cat.name;
-    [self.navigationController pushViewController:controller animated:true];
+    CategoryViewController *catController = (CategoryViewController *)[UIViewController instanceViewController:@"CategoryViewController" storyboardName:@"Main" params:@{@"categoryId":cat.idStr, @"name":cat.name}];
+    catController.viewType = ViewTypeCategory;
+    [self.navigationController pushViewController:catController animated:true];
     
 }
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
