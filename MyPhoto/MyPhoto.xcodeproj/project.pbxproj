@@ -17,6 +17,8 @@
 		1B232AD0211FD343000E7AD3 /* DouBanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B232ACF211FD343000E7AD3 /* DouBanDetailViewController.m */; };
 		1B232AD4211FD56C000E7AD3 /* DBTrailerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B232AD2211FD56C000E7AD3 /* DBTrailerCollectionViewCell.m */; };
 		1B232AD5211FD56C000E7AD3 /* DBTrailerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B232AD3211FD56C000E7AD3 /* DBTrailerCollectionViewCell.xib */; };
+		1B232ADB211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B232AD9211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.m */; };
+		1B232ADC211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B232ADA211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.xib */; };
 		6C1EF8D5211D3ED80094B016 /* BoxOfficeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1EF8D4211D3ED80094B016 /* BoxOfficeTableViewController.m */; };
 		6C1EF8DF211D80B20094B016 /* UIViewController+Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1EF8DE211D80B20094B016 /* UIViewController+Route.m */; };
 		6C1EF8E2211D852E0094B016 /* NuoMiMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1EF8E1211D852E0094B016 /* NuoMiMovie.m */; };
@@ -65,6 +67,9 @@
 		1B232AD1211FD56C000E7AD3 /* DBTrailerCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBTrailerCollectionViewCell.h; sourceTree = "<group>"; };
 		1B232AD2211FD56C000E7AD3 /* DBTrailerCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBTrailerCollectionViewCell.m; sourceTree = "<group>"; };
 		1B232AD3211FD56C000E7AD3 /* DBTrailerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBTrailerCollectionViewCell.xib; sourceTree = "<group>"; };
+		1B232AD8211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBFilmHeaderCollectionReusableView.h; sourceTree = "<group>"; };
+		1B232AD9211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBFilmHeaderCollectionReusableView.m; sourceTree = "<group>"; };
+		1B232ADA211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBFilmHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		38BCF533DB48B097CD36823D /* Pods_MyPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C1EF8D3211D3ED80094B016 /* BoxOfficeTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxOfficeTableViewController.h; sourceTree = "<group>"; };
 		6C1EF8D4211D3ED80094B016 /* BoxOfficeTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoxOfficeTableViewController.m; sourceTree = "<group>"; };
@@ -206,6 +211,9 @@
 				1B232AD1211FD56C000E7AD3 /* DBTrailerCollectionViewCell.h */,
 				1B232AD2211FD56C000E7AD3 /* DBTrailerCollectionViewCell.m */,
 				1B232AD3211FD56C000E7AD3 /* DBTrailerCollectionViewCell.xib */,
+				1B232AD8211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.h */,
+				1B232AD9211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.m */,
+				1B232ADA211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -350,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B232ADC211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.xib in Resources */,
 				1B232AD5211FD56C000E7AD3 /* DBTrailerCollectionViewCell.xib in Resources */,
 				6CB2ECAF211464C9000370EF /* LaunchScreen.storyboard in Resources */,
 				6CB2ECAC211464C9000370EF /* Assets.xcassets in Resources */,
@@ -445,6 +454,7 @@
 				6C2D23492117F9F20018438B /* Image360Model.m in Sources */,
 				6C1EF8D5211D3ED80094B016 /* BoxOfficeTableViewController.m in Sources */,
 				6CCCF5FE21183DFE00ED72D5 /* ImageCategory.m in Sources */,
+				1B232ADB211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.m in Sources */,
 				6C1EF8DF211D80B20094B016 /* UIViewController+Route.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

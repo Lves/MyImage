@@ -11,6 +11,5 @@
 @interface DBCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
-@property (weak, nonatomic) IBOutlet UILabel *lblRating;
 @property (nonatomic,strong) DoubanMovie *movie;
 @end

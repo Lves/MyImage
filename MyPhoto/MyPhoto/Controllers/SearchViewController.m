@@ -38,15 +38,14 @@
     [super viewDidLoad];
     self.title = @"搜索";
     [self setCollectionView];
-    //隐藏导航栏上的返回按钮
-//    [self.navigationItem setHidesBackButton:YES];
     [self setSearchBar];
     
+    
     __weak typeof(self) weakSelf = self;
-    self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    self.collectionView.mj_footer = [MJRefreshAutoStateFooter footerWithRefreshingBlock:^{
         [weakSelf searchImages:weakSelf.keyword skip:weakSelf.dataArray.count];
     }];
-    
+    [(MJRefreshAutoStateFooter *)self.collectionView.mj_footer setTitle:@"" forState:MJRefreshStateIdle];
     
 }
 - (void)setCollectionView{
@@ -63,9 +62,10 @@
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         __weak typeof(self) weakSelf = self;
         [BaseNetApi searchImages:keyWord skip:skip successBlock:^(NSArray *images) {
-            if (skip == 0) {//首页
+            if (skip == 0) {//第一页
                 weakSelf.dataArray = [images mutableCopy];
                 [weakSelf.collectionView reloadData];
+                [(MJRefreshAutoStateFooter *)self.collectionView.mj_footer setTitle:MJRefreshAutoFooterIdleText forState:MJRefreshStateIdle];
             }else {//加载更多
                 if (images.count > 0) {
                      [weakSelf.dataArray addObjectsFromArray:images];

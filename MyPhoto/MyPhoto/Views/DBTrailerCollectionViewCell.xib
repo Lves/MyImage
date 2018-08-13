@@ -28,18 +28,27 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qi-vY-SVC">
                         <rect key="frame" x="0.0" y="113" width="189" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie_play" translatesAutoresizingMaskIntoConstraints="NO" id="Ti8-N6-D7u">
+                        <rect key="frame" x="75.5" y="34" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Ti8-N6-D7u" secondAttribute="height" multiplier="1:1" id="1ok-0f-q6R"/>
+                            <constraint firstAttribute="width" constant="40" id="52j-3M-Ka0"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="0hO-gB-kIe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="500-Wz-whn"/>
                 <constraint firstItem="0hO-gB-kIe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="EsW-tx-S1R"/>
+                <constraint firstItem="Ti8-N6-D7u" firstAttribute="centerY" secondItem="0hO-gB-kIe" secondAttribute="centerY" id="Kg0-qO-Oe9"/>
                 <constraint firstAttribute="trailing" secondItem="0hO-gB-kIe" secondAttribute="trailing" id="TGh-mt-dCc"/>
                 <constraint firstItem="3qi-vY-SVC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="nPe-Xx-uEY"/>
                 <constraint firstAttribute="trailing" secondItem="3qi-vY-SVC" secondAttribute="trailing" constant="2" id="qWa-EI-dit"/>
                 <constraint firstItem="3qi-vY-SVC" firstAttribute="top" secondItem="0hO-gB-kIe" secondAttribute="bottom" constant="5" id="sdu-9N-3oO"/>
+                <constraint firstItem="Ti8-N6-D7u" firstAttribute="centerX" secondItem="0hO-gB-kIe" secondAttribute="centerX" id="tmH-zE-865"/>
             </constraints>
             <size key="customSize" width="191" height="138"/>
             <connections>
@@ -49,4 +58,7 @@
             <point key="canvasLocation" x="104.5" y="98"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="movie_play" width="26" height="26"/>
+    </resources>
 </document>

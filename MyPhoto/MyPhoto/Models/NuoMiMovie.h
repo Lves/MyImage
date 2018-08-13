@@ -41,8 +41,10 @@
 @property(nonatomic,copy) NSString *min;
 @end
 ///豆瓣详情
-@interface DBMovieDetail: NSObject
+@interface DBMovieDetail: DoubanMovie
 @property (nonatomic,strong) NSArray *trailers;
+@property (nonatomic, copy) NSString *summary;//电影介绍
+@property (nonatomic, copy) NSString *mobile_url;
 @end
 
 @interface DBTrailer: NSObject

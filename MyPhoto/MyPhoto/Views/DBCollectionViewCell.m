@@ -17,8 +17,11 @@
 }
 -(void)setMovie:(DoubanMovie *)movie{
     _movie = movie;
-    self.lblName.text = movie.title;
-    self.lblRating.text = [NSString stringWithFormat:@"%.1f",movie.rating.average.floatValue];
+    
+    NSString *title = [NSString stringWithFormat:@"%@ %.1f",movie.title ,movie.rating.average.floatValue];
+    NSMutableAttributedString *str3 = [[NSMutableAttributedString alloc] initWithString:title];
+    [str3 addAttribute:NSForegroundColorAttributeName value:HEXCOLOR(0xe09015) range:NSMakeRange(movie.title.length,title.length-movie.title.length)];
+    self.lblName.attributedText = str3;
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:movie.images.small] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         self.iconImageView.image = image;
     }];
