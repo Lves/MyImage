@@ -12,6 +12,8 @@
 #import "HomeCollectionViewCell.h"
 #import <MJRefresh/MJRefresh.h>
 #import "BaseNetApi.h"
+#import <HUPhotoBrowser/HUPhotoBrowser.h>
+#import "NSArray+ImageModel.h"
 @interface CategoryViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,strong) NSMutableArray *dataArray;
@@ -126,6 +128,12 @@
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [collectionView deselectItemAtIndexPath:indexPath animated:true];
+    HomeCollectionViewCell *cell = (HomeCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    [HUPhotoBrowser showFromImageView:cell.iconImage withURLStrings:[self.dataArray getPhoneImageModelProperty] placeholderImage:[UIImage imageNamed:@"common_placeholder"] atIndex:indexPath.row dismiss:nil];
+    
 }
 
 @end

@@ -11,10 +11,11 @@ use_frameworks!
 def pods
 	pod 'MJExtension'
 	pod 'MJRefresh'
-	pod 'SDWebImage', '~> 4.0'
-	pod 'AFNetworking', '~> 3.0'
+    pod 'SDWebImage'
+    pod 'AFNetworking', '~> 3.0'
     pod 'FSPagerView'
-    pod 'MBProgressHUD', '~> 1.1.0'
+    pod 'MBProgressHUD'
+    pod 'HUPhotoBrowser'
 end
 
 target 'MyPhoto' do

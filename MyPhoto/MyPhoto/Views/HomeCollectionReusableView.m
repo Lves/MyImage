@@ -50,10 +50,11 @@
 }
 
 -(void)pagerView:(FSPagerView *)pagerView didSelectItemAtIndex:(NSInteger)index{
+    [pagerView deselectItemAtIndex:index animated:true];
     
+    FSPagerViewCell *cell = [self pagerView:pagerView cellForItemAtIndex:index];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pagerView:cell:didSelectItemAtIndex:)]){
+        [self.delegate pagerView:pagerView cell:cell didSelectItemAtIndex:index];
+    }
 }
-
-
-
-
 @end

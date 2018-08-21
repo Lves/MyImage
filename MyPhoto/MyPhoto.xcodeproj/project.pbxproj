@@ -19,6 +19,7 @@
 		1B232AD5211FD56C000E7AD3 /* DBTrailerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B232AD3211FD56C000E7AD3 /* DBTrailerCollectionViewCell.xib */; };
 		1B232ADB211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B232AD9211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.m */; };
 		1B232ADC211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B232ADA211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.xib */; };
+		6C070BCB212BECD4005DC7E0 /* NSArray+ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C070BCA212BECD4005DC7E0 /* NSArray+ImageModel.m */; };
 		6C1EF8D5211D3ED80094B016 /* BoxOfficeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1EF8D4211D3ED80094B016 /* BoxOfficeTableViewController.m */; };
 		6C1EF8DF211D80B20094B016 /* UIViewController+Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1EF8DE211D80B20094B016 /* UIViewController+Route.m */; };
 		6C1EF8E2211D852E0094B016 /* NuoMiMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1EF8E1211D852E0094B016 /* NuoMiMovie.m */; };
@@ -71,6 +72,8 @@
 		1B232AD9211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBFilmHeaderCollectionReusableView.m; sourceTree = "<group>"; };
 		1B232ADA211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBFilmHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		38BCF533DB48B097CD36823D /* Pods_MyPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C070BC9212BECD4005DC7E0 /* NSArray+ImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+ImageModel.h"; sourceTree = "<group>"; };
+		6C070BCA212BECD4005DC7E0 /* NSArray+ImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ImageModel.m"; sourceTree = "<group>"; };
 		6C1EF8D3211D3ED80094B016 /* BoxOfficeTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxOfficeTableViewController.h; sourceTree = "<group>"; };
 		6C1EF8D4211D3ED80094B016 /* BoxOfficeTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoxOfficeTableViewController.m; sourceTree = "<group>"; };
 		6C1EF8DD211D80B20094B016 /* UIViewController+Route.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Route.h"; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 			children = (
 				6C1EF8DD211D80B20094B016 /* UIViewController+Route.h */,
 				6C1EF8DE211D80B20094B016 /* UIViewController+Route.m */,
+				6C070BC9212BECD4005DC7E0 /* NSArray+ImageModel.h */,
+				6C070BCA212BECD4005DC7E0 /* NSArray+ImageModel.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -382,19 +387,23 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MyPhoto/Pods-MyPhoto-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/HUPhotoBrowser/HUPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HUPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -437,6 +446,7 @@
 				6C1EF8E5211D89320094B016 /* BoxOfficeTableViewCell.m in Sources */,
 				6C211074211952200082DDD4 /* SearchImageModel.m in Sources */,
 				6CCCF5FB211838EC00ED72D5 /* CategoryViewController.m in Sources */,
+				6C070BCB212BECD4005DC7E0 /* NSArray+ImageModel.m in Sources */,
 				1B232AC2211ED10E000E7AD3 /* FunctionModel.m in Sources */,
 				6C2D23512117FBC80018438B /* HomeCollectionReusableView.m in Sources */,
 				1B232AD4211FD56C000E7AD3 /* DBTrailerCollectionViewCell.m in Sources */,

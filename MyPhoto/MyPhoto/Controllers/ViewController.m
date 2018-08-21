@@ -19,7 +19,10 @@
 #import "CategoryViewController.h"
 #import "BaseNetApi.h"
 #import "FunctionModel.h"
-@interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+#import <HUPhotoBrowser/HUPhotoBrowser.h>
+#import "NSArray+ImageModel.h"
+
+@interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,HColleReusableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,strong) NSMutableArray *dataArray;
@@ -123,7 +126,7 @@
     }else{
         HomeCollectionViewCell *cell = (HomeCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"HomeCollectionViewCell" forIndexPath:indexPath];
         PhoneImageModel *phoneImage = self.dataArray[indexPath.row];
-        [cell.iconImage sd_setImageWithURL:[NSURL URLWithString:phoneImage.img] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        [cell.iconImage sd_setImageWithURL:[NSURL URLWithString:phoneImage.thumb] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             cell.iconImage.image = image;
         }];
          return cell;
@@ -143,6 +146,9 @@
             }
             [self pushToViewController:model.address storyboardName:@"Main" params:nil];
         }
+    }else if (indexPath.section == 1){
+        HomeCollectionViewCell *cell = (HomeCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        [HUPhotoBrowser showFromImageView:cell.iconImage withURLStrings:[self.dataArray getPhoneImageModelProperty] placeholderImage:[UIImage imageNamed:@"common_placeholder"] atIndex:indexPath.row dismiss:nil];
     }
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -160,8 +166,15 @@
 }
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     HomeCollectionReusableView *header = (HomeCollectionReusableView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeCollectionReusableView" forIndexPath:indexPath];
+    header.delegate = self;
     header.dataArray = self.topBannerArray;
     return header;
 }
+#pragma mark HColleReusableViewDelegate
+-(void)pagerView:(FSPagerView *)pagerView cell:(FSPagerViewCell *)cell didSelectItemAtIndex:(NSInteger)index{
+   
+    [HUPhotoBrowser showFromImageView:cell.imageView withURLStrings:[self.topBannerArray getImage360ModelProperty] placeholderImage:[UIImage imageNamed:@"common_placeholder"] atIndex:index dismiss:nil];
+}
+    
 
 @end
