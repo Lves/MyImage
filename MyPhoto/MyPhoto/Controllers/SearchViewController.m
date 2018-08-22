@@ -156,7 +156,7 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     HomeCollectionViewCell *cell = (HomeCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"HomeCollectionViewCell" forIndexPath:indexPath];
     SearchImageModel *phoneImage = self.dataArray[indexPath.row];
-    [cell.iconImage sd_setImageWithURL:[NSURL URLWithString:phoneImage.url] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    [cell.iconImage sd_setImageWithURL:[NSURL URLWithString:phoneImage.url] placeholderImage:[UIImage imageNamed:@"common_item_placeholder"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         cell.iconImage.image = image;
     }];
     return cell;

@@ -43,7 +43,7 @@
 - (FSPagerViewCell * _Nonnull)pagerView:(FSPagerView * _Nonnull)pagerView cellForItemAtIndex:(NSInteger)index {
     FSPagerViewCell *cell = [pagerView dequeueReusableCellWithReuseIdentifier:@"TopBannerCollectionViewCell" atIndex:index];
     Image360Model *image360 = (Image360Model *)[self.dataArray objectAtIndex:index];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:image360.url] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:image360.url] placeholderImage:[UIImage imageNamed:@"common_item_placeholder"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         cell.imageView.image = image;
     }];
     return cell;

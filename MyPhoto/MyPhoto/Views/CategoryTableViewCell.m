@@ -24,7 +24,7 @@
 - (void)setImageCategory:(ImageCategory *)imageCategory{
     _imageCategory = imageCategory;
     
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:imageCategory.cover] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:imageCategory.cover] placeholderImage:[UIImage imageNamed:@"common_item_placeholder"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         self.iconImageView.image = image;
     }];
     self.lblTitle.text = imageCategory.name;
