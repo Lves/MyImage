@@ -10,7 +10,9 @@
 #import "BoxOfficeTableViewController.h"
 #import <HUPhotoBrowser/HUPhotoBrowser.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-@interface MyViewController ()<UITableViewDelegate, UITableViewDataSource>
+#import "WXApi.h"
+
+@interface MyViewController ()<UITableViewDelegate, UITableViewDataSource, WXApiDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSArray *dataArray;
 @end
@@ -26,7 +28,7 @@
     [super viewDidLoad];
     self.title = @"我的";
     self.tableView.tableFooterView = [UIView new];
-    dataArray = @[@[@"我的收藏",@"意见反馈",@"清理缓存"], @[@"设置"]];
+    dataArray = @[@[@"我的收藏",@"意见反馈",@"清理缓存",@"分享给好友"], @[@"设置"]];
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
@@ -55,16 +57,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:true];
     if (indexPath.section == 0) {
         if (indexPath.row == 2) { //清缓存
-             [self showLoading];
-            __weak typeof(self) weakSelf = self;
-            dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                 [[SDImageCache sharedImageCache] clearDiskOnCompletion:nil];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [weakSelf.tableView reloadData];
-                    [weakSelf showHUDText:@"清理成功" completion:nil];
-                });
-            });
-           
+            [self cleanDisk];
+        }else if (indexPath.row == 3){
+            [self shareToWeChat];
         }
     }
 }
@@ -79,7 +74,41 @@
     view.backgroundColor = [UIColor clearColor];
     return view;
 }
+#pragma mark - 微信
+-(void)onResp:(BaseResp *)resp{
+    NSLog(@"%@");
+}
 #pragma mark - private
+//清理缓存
+- (void)cleanDisk{
+    [self showLoading];
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [[SDImageCache sharedImageCache] clearDiskOnCompletion:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.tableView reloadData];
+            [weakSelf showHUDText:@"清理成功" completion:nil];
+        });
+    });
+}
+//分享
+- (void)shareToWeChat{
+    
+//    WXMediaMessage *mess = [WXMediaMessage message];
+//    [mess setThumbImage:[UIImage imageNamed:@"AppIcon"]];
+//
+//    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+//    req.message = mess;
+//    req.bText = false;
+//    req.scene = WXSceneSession;
+//    [WXApi sendReq:req];
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.text                = @"简单文本分享测试";
+    req.bText               = YES;
+    req.scene               = WXSceneSession;
+    [WXApi sendReq:req];
+}
+
 //计算出大小
 - (NSString *)fileSizeWithInterge:(NSInteger)size{
     // 1k = 1024, 1m = 1024k

@@ -39,6 +39,13 @@
 		6C2D23522117FBC80018438B /* HomeCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C2D23502117FBC80018438B /* HomeCollectionReusableView.xib */; };
 		6C2D2357211803C40018438B /* DDTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D2356211803C40018438B /* DDTest.swift */; };
 		6C560345212D119700B8F0DF /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C560344212D119700B8F0DF /* UIViewController+HUD.m */; };
+		6C560347212D45CF00B8F0DF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C560346212D45CF00B8F0DF /* SystemConfiguration.framework */; };
+		6C560349212D45D900B8F0DF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C560348212D45D900B8F0DF /* libz.tbd */; };
+		6C56034B212D45E500B8F0DF /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C56034A212D45E500B8F0DF /* libsqlite3.0.tbd */; };
+		6C56034D212D45EE00B8F0DF /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C56034C212D45EE00B8F0DF /* libc++.tbd */; };
+		6C56034F212D45F400B8F0DF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C56034E212D45F300B8F0DF /* Security.framework */; };
+		6C560351212D45FE00B8F0DF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C560350212D45FD00B8F0DF /* CoreTelephony.framework */; };
+		6C560353212D460600B8F0DF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C560352212D460600B8F0DF /* CFNetwork.framework */; };
 		6CB2ECA4211464C7000370EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2ECA3211464C7000370EF /* AppDelegate.m */; };
 		6CB2ECAA211464C7000370EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB2ECA8211464C7000370EF /* Main.storyboard */; };
 		6CB2ECAC211464C9000370EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CB2ECAB211464C9000370EF /* Assets.xcassets */; };
@@ -113,6 +120,13 @@
 		6C2D2356211803C40018438B /* DDTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDTest.swift; sourceTree = "<group>"; };
 		6C560343212D119700B8F0DF /* UIViewController+HUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HUD.h"; sourceTree = "<group>"; };
 		6C560344212D119700B8F0DF /* UIViewController+HUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HUD.m"; sourceTree = "<group>"; };
+		6C560346212D45CF00B8F0DF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6C560348212D45D900B8F0DF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		6C56034A212D45E500B8F0DF /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		6C56034C212D45EE00B8F0DF /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		6C56034E212D45F300B8F0DF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6C560350212D45FD00B8F0DF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		6C560352212D460600B8F0DF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		6CB2EC9F211464C7000370EF /* MyPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB2ECA2211464C7000370EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6CB2ECA3211464C7000370EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -140,6 +154,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C560353212D460600B8F0DF /* CFNetwork.framework in Frameworks */,
+				6C560351212D45FE00B8F0DF /* CoreTelephony.framework in Frameworks */,
+				6C56034F212D45F400B8F0DF /* Security.framework in Frameworks */,
+				6C56034D212D45EE00B8F0DF /* libc++.tbd in Frameworks */,
+				6C56034B212D45E500B8F0DF /* libsqlite3.0.tbd in Frameworks */,
+				6C560349212D45D900B8F0DF /* libz.tbd in Frameworks */,
+				6C560347212D45CF00B8F0DF /* SystemConfiguration.framework in Frameworks */,
 				CA039F3CFA8B06FCACD8812F /* Pods_MyPhoto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +320,13 @@
 		74BDA6F2A886A5471983167F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6C560352212D460600B8F0DF /* CFNetwork.framework */,
+				6C560350212D45FD00B8F0DF /* CoreTelephony.framework */,
+				6C56034E212D45F300B8F0DF /* Security.framework */,
+				6C56034C212D45EE00B8F0DF /* libc++.tbd */,
+				6C56034A212D45E500B8F0DF /* libsqlite3.0.tbd */,
+				6C560348212D45D900B8F0DF /* libz.tbd */,
+				6C560346212D45CF00B8F0DF /* SystemConfiguration.framework */,
 				38BCF533DB48B097CD36823D /* Pods_MyPhoto.framework */,
 			);
 			name = Frameworks;

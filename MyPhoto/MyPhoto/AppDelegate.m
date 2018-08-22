@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
-@interface AppDelegate ()
+#import "WXApi.h"
+@interface AppDelegate ()<WXApiDelegate>
 
 @end
 
@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [WXApi registerApp:@"wx5eaa865eff2ec992"];
     return YES;
 }
 
@@ -45,6 +46,16 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+- (BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    return [WXApi handleOpenURL:url delegate:self];
+}
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
+-(void)onResp:(BaseResp *)resp{
+    NSLog(@"%@");
 }
 
 

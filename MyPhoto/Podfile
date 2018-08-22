@@ -16,6 +16,7 @@ def pods
     pod 'FSPagerView'
     pod 'MBProgressHUD'
     pod 'HUPhotoBrowser'
+    pod 'WechatOpenSDK'
 end
 
 target 'MyPhoto' do
