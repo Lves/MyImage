@@ -38,6 +38,7 @@
 		6C2D23512117FBC80018438B /* HomeCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D234F2117FBC80018438B /* HomeCollectionReusableView.m */; };
 		6C2D23522117FBC80018438B /* HomeCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C2D23502117FBC80018438B /* HomeCollectionReusableView.xib */; };
 		6C2D2357211803C40018438B /* DDTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D2356211803C40018438B /* DDTest.swift */; };
+		6C560345212D119700B8F0DF /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C560344212D119700B8F0DF /* UIViewController+HUD.m */; };
 		6CB2ECA4211464C7000370EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2ECA3211464C7000370EF /* AppDelegate.m */; };
 		6CB2ECAA211464C7000370EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB2ECA8211464C7000370EF /* Main.storyboard */; };
 		6CB2ECAC211464C9000370EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CB2ECAB211464C9000370EF /* Assets.xcassets */; };
@@ -110,6 +111,8 @@
 		6C2D23502117FBC80018438B /* HomeCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionReusableView.xib; sourceTree = "<group>"; };
 		6C2D2353211800840018438B /* MyPhoto-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyPhoto-Bridging-Header.h"; sourceTree = "<group>"; };
 		6C2D2356211803C40018438B /* DDTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDTest.swift; sourceTree = "<group>"; };
+		6C560343212D119700B8F0DF /* UIViewController+HUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HUD.h"; sourceTree = "<group>"; };
+		6C560344212D119700B8F0DF /* UIViewController+HUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HUD.m"; sourceTree = "<group>"; };
 		6CB2EC9F211464C7000370EF /* MyPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB2ECA2211464C7000370EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6CB2ECA3211464C7000370EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 				6C070BCA212BECD4005DC7E0 /* NSArray+ImageModel.m */,
 				6C070BDD212C1CB8005DC7E0 /* NSDictionary+File.h */,
 				6C070BDE212C1CB8005DC7E0 /* NSDictionary+File.m */,
+				6C560343212D119700B8F0DF /* UIViewController+HUD.h */,
+				6C560344212D119700B8F0DF /* UIViewController+HUD.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -446,6 +451,7 @@
 				1B232AC9211FC34A000E7AD3 /* DBCollectionViewCell.m in Sources */,
 				1B232ABE211ECDFC000E7AD3 /* HomeFunctionCollectionViewCell.m in Sources */,
 				6CB2ECB2211464C9000370EF /* main.m in Sources */,
+				6C560345212D119700B8F0DF /* UIViewController+HUD.m in Sources */,
 				6CCCF68421185F1C00ED72D5 /* CategoryTableViewCell.m in Sources */,
 				6C1EF8E2211D852E0094B016 /* NuoMiMovie.m in Sources */,
 				6C1EF8E5211D89320094B016 /* BoxOfficeTableViewCell.m in Sources */,

@@ -39,8 +39,7 @@
                            [FunctionModel instanceWithTitle:@"豆瓣评分" imageName:@"function_douban" address:@"DouBanViewController"],
                            [FunctionModel instanceWithTitle:@"票房排行榜" imageName:@"function_ranking_list" address:@"BoxOfficeTableViewController"],
                            [FunctionModel instanceWithTitle:@"其他" imageName:@"function_others" address:@""]];
-    //banner
-    [self requestBanner];
+
     
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;//[UICollectionViewFlowLayout new];
     flowLayout.minimumLineSpacing = 0;
@@ -53,6 +52,8 @@
     __weak typeof(self) weakSelf = self;
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf requestPhoneImages];
+        //banner
+        [weakSelf requestBanner];
     }];
     self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [weakSelf requestMorePhoneImages:weakSelf.dataArray.count];

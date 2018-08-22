@@ -12,7 +12,6 @@
 #import "HomeCollectionViewCell.h"
 #import "SearchImageModel.h"
 #import "BaseNetApi.h"
-#import <MBProgressHUD/MBProgressHUD.h>
 #import <HUPhotoBrowser/HUPhotoBrowser.h>
 #import "NSArray+ImageModel.h"
 @interface SearchViewController ()<UISearchBarDelegate>
@@ -60,13 +59,20 @@
 
 - (void)searchImages:(NSString *)keyWord skip:(NSInteger)skip{
     if (keyWord.length > 0) {
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [self showLoading];
         __weak typeof(self) weakSelf = self;
         [BaseNetApi searchImages:keyWord skip:skip successBlock:^(NSArray *images) {
+            [weakSelf hidenLoading];
             if (skip == 0) {//第一页
                 weakSelf.dataArray = [images mutableCopy];
                 [weakSelf.collectionView reloadData];
-                [(MJRefreshAutoStateFooter *)self.collectionView.mj_footer setTitle:MJRefreshAutoFooterIdleText forState:MJRefreshStateIdle];
+                if (weakSelf.dataArray.count > 0) {
+                    [(MJRefreshAutoStateFooter *)self.collectionView.mj_footer setTitle:[NSBundle mj_localizedStringForKey:MJRefreshAutoFooterIdleText] forState:MJRefreshStateIdle];
+                }else {
+                    [(MJRefreshAutoStateFooter *)self.collectionView.mj_footer setTitle:@"" forState:MJRefreshStateIdle];
+                    [weakSelf showHUDText:@"数据为空，换个关键词试试" completion:nil];
+                }
+                
             }else {//加载更多
                 if (images.count > 0) {
                      [weakSelf.dataArray addObjectsFromArray:images];
@@ -76,11 +82,11 @@
                      [weakSelf.collectionView.mj_footer endRefreshingWithNoMoreData];
                 }
             }
-            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+            
         } failure:^(NSError *error) {
             weakSelf.dataArray = nil;
             [weakSelf.collectionView reloadData];
-            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+            [weakSelf hidenLoading];
         }];
     }else {
         

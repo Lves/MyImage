@@ -102,7 +102,7 @@ static NSInteger kCategoryStep = 20;
 }
 //搜索
 +(void) searchImages:(NSString *)keyword skip:(NSInteger)skip successBlock:(HomeNetBlock)success failure:(NetFailureBlock)failure{
-    NSString *urlStr = [NSString stringWithFormat:@"http://wallpaper.apc.360.cn/index.php?c=WallPaper&a=search&count=6&kw=%@&start=%lu",keyword,skip];
+    NSString *urlStr = [NSString stringWithFormat:@"http://wallpaper.apc.360.cn/index.php?c=WallPaper&a=search&count=20&kw=%@&start=%lu",keyword,skip];
     [BaseNetApi requestWithUrl:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] method:@"GET" params:nil httpHeader:nil successBlock:^(id responseObject) {
         if ([responseObject[@"errmsg"] isEqualToString:@"success"]) {
             NSArray *jsonArray = responseObject[@"data"];

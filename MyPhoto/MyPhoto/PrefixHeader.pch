@@ -11,7 +11,7 @@
 
 
 #import "UIViewController+Route.h"
-
+#import "UIViewController+HUD.h"
 //1. 打印日志
 #ifdef DEBUG
 #    define DLog(...) NSLog(__VA_ARGS__)
