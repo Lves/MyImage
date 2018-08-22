@@ -12,12 +12,14 @@
 @implementation UIViewController (HUD)
 
 - (void)showLoading{
+    [self hidenLoading];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 - (void)hidenLoading{
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 - (void)showLoadingHideAfter:(double)second completion:(HUDCompletionBlock)block{
+    [self hidenLoading];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, second * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
@@ -29,6 +31,7 @@
 }
 #pragma mark - 文字
 - (void)showHUDText:(NSString *)text hideAfter:(double)second completion:(HUDCompletionBlock)block{
+    [self hidenLoading];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = text;
     hud.mode = MBProgressHUDModeText;
