@@ -11,7 +11,6 @@
 #import "hu_const.h"
 #import "HUWebImage.h"
 #import <SVProgressHUD/SVProgressHUD.h>
-
 @interface HUPhotoBrowser () <UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout> {
     CGRect _endTempFrame;
     NSInteger _currentPage;
@@ -235,7 +234,17 @@
     countLab.textAlignment = NSTextAlignmentCenter;
     [_toolBar addSubview:countLab];
     _countLab = countLab;
-    
+//    //收藏
+//    UIButton *collectionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    collectionBtn.frame = CGRectMake((_toolBar.frame.size.width-50)/2.0, 1, 50, 28);
+//    collectionBtn.layer.cornerRadius = 2;
+//    [collectionBtn setBackgroundColor:[[UIColor blackColor]colorWithAlphaComponent:0.4]];
+//    [collectionBtn setTitle:@"收藏" forState:UIControlStateNormal];
+//    [collectionBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    collectionBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+//    [collectionBtn addTarget:self action:@selector(collection) forControlEvents:UIControlEventTouchUpInside];
+//    [_toolBar addSubview:collectionBtn];
+    //保存
     UIButton *saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     saveBtn.frame = CGRectMake(_toolBar.frame.size.width-58, 1, 50, 28);
     saveBtn.layer.cornerRadius = 2;
@@ -367,6 +376,12 @@
     }
    
 }
+//- (void)collection{
+//    NSString *seavedImage = self.URLStrings[_currentPage];
+//    if (seavedImage) {
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"kCollectionImageNoti" object:seavedImage userInfo:nil];
+//    }
+//}
 
 - (void)imageSavedToPhotosAlbum:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
   

@@ -20,6 +20,7 @@
 		1B232ADB211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B232AD9211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.m */; };
 		1B232ADC211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B232ADA211FFBD3000E7AD3 /* DBFilmHeaderCollectionReusableView.xib */; };
 		6C070BCB212BECD4005DC7E0 /* NSArray+ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C070BCA212BECD4005DC7E0 /* NSArray+ImageModel.m */; };
+		6C070BDF212C1CB9005DC7E0 /* NSDictionary+File.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C070BDE212C1CB8005DC7E0 /* NSDictionary+File.m */; };
 		6C1EF8D5211D3ED80094B016 /* BoxOfficeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1EF8D4211D3ED80094B016 /* BoxOfficeTableViewController.m */; };
 		6C1EF8DF211D80B20094B016 /* UIViewController+Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1EF8DE211D80B20094B016 /* UIViewController+Route.m */; };
 		6C1EF8E2211D852E0094B016 /* NuoMiMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1EF8E1211D852E0094B016 /* NuoMiMovie.m */; };
@@ -74,6 +75,8 @@
 		38BCF533DB48B097CD36823D /* Pods_MyPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C070BC9212BECD4005DC7E0 /* NSArray+ImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+ImageModel.h"; sourceTree = "<group>"; };
 		6C070BCA212BECD4005DC7E0 /* NSArray+ImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ImageModel.m"; sourceTree = "<group>"; };
+		6C070BDD212C1CB8005DC7E0 /* NSDictionary+File.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+File.h"; sourceTree = "<group>"; };
+		6C070BDE212C1CB8005DC7E0 /* NSDictionary+File.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+File.m"; sourceTree = "<group>"; };
 		6C1EF8D3211D3ED80094B016 /* BoxOfficeTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxOfficeTableViewController.h; sourceTree = "<group>"; };
 		6C1EF8D4211D3ED80094B016 /* BoxOfficeTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoxOfficeTableViewController.m; sourceTree = "<group>"; };
 		6C1EF8DD211D80B20094B016 /* UIViewController+Route.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Route.h"; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				6C1EF8DE211D80B20094B016 /* UIViewController+Route.m */,
 				6C070BC9212BECD4005DC7E0 /* NSArray+ImageModel.h */,
 				6C070BCA212BECD4005DC7E0 /* NSArray+ImageModel.m */,
+				6C070BDD212C1CB8005DC7E0 /* NSDictionary+File.h */,
+				6C070BDE212C1CB8005DC7E0 /* NSDictionary+File.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -446,6 +451,7 @@
 				6C1EF8E5211D89320094B016 /* BoxOfficeTableViewCell.m in Sources */,
 				6C211074211952200082DDD4 /* SearchImageModel.m in Sources */,
 				6CCCF5FB211838EC00ED72D5 /* CategoryViewController.m in Sources */,
+				6C070BDF212C1CB9005DC7E0 /* NSDictionary+File.m in Sources */,
 				6C070BCB212BECD4005DC7E0 /* NSArray+ImageModel.m in Sources */,
 				1B232AC2211ED10E000E7AD3 /* FunctionModel.m in Sources */,
 				6C2D23512117FBC80018438B /* HomeCollectionReusableView.m in Sources */,
@@ -608,8 +614,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UUR7J35L27;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MyPhoto/PrefixHeader.pch";
 				INFOPLIST_FILE = MyPhoto/Info.plist;
@@ -618,12 +626,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pintec.MyPhoto;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jimubox.MyPhoto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "25da8a69-8430-4c91-82d6-f9a7259990d4";
+				PROVISIONING_PROFILE_SPECIFIER = "jimubox*dist";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyPhoto/Views/MyPhoto-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -634,8 +644,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UUR7J35L27;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MyPhoto/PrefixHeader.pch";
 				INFOPLIST_FILE = MyPhoto/Info.plist;
@@ -644,11 +656,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pintec.MyPhoto;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jimubox.MyPhoto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "25da8a69-8430-4c91-82d6-f9a7259990d4";
+				PROVISIONING_PROFILE_SPECIFIER = "jimubox*dist";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyPhoto/Views/MyPhoto-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

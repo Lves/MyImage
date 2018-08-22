@@ -172,7 +172,6 @@
 }
 #pragma mark HColleReusableViewDelegate
 -(void)pagerView:(FSPagerView *)pagerView cell:(FSPagerViewCell *)cell didSelectItemAtIndex:(NSInteger)index{
-   
     [HUPhotoBrowser showFromImageView:cell.imageView withURLStrings:[self.topBannerArray getImage360ModelProperty] placeholderImage:[UIImage imageNamed:@"common_placeholder"] atIndex:index dismiss:nil];
 }
     
